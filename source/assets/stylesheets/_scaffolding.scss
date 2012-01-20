@@ -1,0 +1,183 @@
+/* scaffolding.css.scss
+ * Basic structure
+ * ------------------------------------------------------------------ */
+
+/*---------------------------------------------------------
+ Body, links, basics
+------------------------------------------------------------ */
+html {
+	font-size: 87.5%;
+}
+body {
+	@include rem('font-size', $fsize);
+	font-family: $font-stack;
+	color: $font-color;
+}
+a {
+	outline: none;
+	color: $link-color;
+	&:hover {
+		color: $link-color-hover;
+	}
+}
+.skip-link,
+.assistive-text {
+	display: none;
+}
+/*---------------------------------------------------------
+	Page structure
+------------------------------------------------------------ */
+div#page {
+	@include rem('padding', 0 $vbase);
+	background-color: #fff;
+	@media screen and (min-width: 600px) {
+		@include clear();
+		margin: 0 auto;
+		@include rem('max-width', 960px)
+	}
+}
+div#primary {
+	@include rem('margin', $vbase 0);
+	@media screen and (min-width: 600px) {
+		float: left;
+		width: percentage(625/960);
+	}
+}
+div#secondary {
+	@include rem('margin', $vbase 0);
+	@media screen and (min-width: 600px) {
+		float: right;
+		width: percentage(250/960);
+	}
+}
+/*---------------------------------------------------------
+	Header
+------------------------------------------------------------ */
+header#masthead {
+	@include rem('padding', $vbase 0);
+	hgroup {
+		h1,
+		h2 {
+			text-align: center;
+			@media screen and (min-width: 600px) {
+				text-align: left;
+			}
+			a {
+				color: $font-color;
+				text-decoration: none;
+				&:hover {
+					color: $link-color;
+					text-decoration: underline;
+				}
+			}
+		}
+		h1 {
+			@include afont();
+			@include rem('font-size', $vbase);
+			line-height: ($evbase2/24);
+			@media screen and (min-width: 600px) {
+				@include rem('font-size', 32px );
+				line-height: ($evbase2/32);
+			}
+		}
+		h2 {
+			font-weight: normal;
+			@include rem('font-size', 13px );
+			line-height: ($evbase/13);
+		}
+	}
+}
+
+/*---------------------------------------------------------
+	Navigation
+------------------------------------------------------------ */
+nav[role="navigation"] {
+	display: inline-block;
+	@include rem('margin-top', $vbase);
+	width: 100%;
+	@include rem('font-size', 13px );
+	text-align: center;
+	border: {
+		bottom: $divider;
+		top: $divider;
+	}
+	@media screen and (min-width: 600px) {
+		text-align: left;
+	}
+	ul {
+		margin: 0;
+		text-indent: 0;
+	}
+	li ul li {
+		padding-left: 0;
+	}
+	li a, 
+	li {
+		display: inline-block;
+		text-decoration: none;
+	}
+	li a {
+		color: $font-color;
+		&:hover {
+			color: darken($font-color, 15);
+		}
+	}
+	li {
+		@include rem('margin-right', 40px);
+		position: relative;
+		a {
+			border-bottom: 0;
+			line-height: ($evbase2/13);
+	}
+}
+// Submenu
+	li ul {
+		display: none;
+		position: absolute;
+		top: 100%;
+		padding: 0;
+		margin: 0;
+		z-index: 1;
+	}
+	li:hover ul {
+		display: block;
+		border-left: 0;
+	}
+	li ul li, 
+	li ul li a {
+		text-align: center;
+	}
+	li ul li a {
+		background: #efefef;
+		border-bottom: $divider;
+		display: block;
+		@include rem('font-size', 12px);
+		padding: 12px 4px;
+		width: 90px;
+	}
+}
+
+/*---------------------------------------------------------
+	Sidebar
+------------------------------------------------------------ */
+div#secondary aside {
+	@include rem('margin-bottom', $vbase2 );
+	h3 {
+		@include rem('margin-bottom', $vbase );
+		text-transform: uppercase;
+		font-weight: 300;
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+	}
+	p,
+	li {
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+	}
+}
+/*---------------------------------------------------------
+	Footer
+------------------------------------------------------------ */
+footer[role="contentinfo"] {
+	clear: both;
+}

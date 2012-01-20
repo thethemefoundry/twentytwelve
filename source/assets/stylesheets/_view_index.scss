@@ -1,0 +1,90 @@
+/* index.css.scss
+ * Basic post styling
+ * ------------------------------------------------------------------ */
+/*---------------------------------------------------------
+	Basic post styling
+------------------------------------------------------------ */
+header.entry-header {
+	h1 {
+		@include afont();
+		@include rem('font-size', 20px);
+		line-height: ($evbase/20);
+		a {
+			text-decoration: none;
+			color: $font-color;
+			&:hover {
+				color: $link-color;
+			}
+		}
+		@media screen and (min-width: 600px) {
+			@include rem('font-size', 22px);
+			line-height: ($evbase/22);
+		}
+	}
+}
+div.entry-meta,
+div.comments-link {
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+}
+div.entry-meta {
+	@include rem('margin-top', $vbase);
+}
+div.entry-content {
+	p {
+		@include rem('margin', $vbase 0);
+		line-height: $lheight;
+	}
+}
+div#content article {
+	@include rem('padding-bottom', $vbase2 );
+	@include rem('margin-bottom', $vbase2 );
+	border-bottom: $divider;
+}
+
+/*---------------------------------------------------------
+	Elements
+------------------------------------------------------------ */
+abbr,
+acronym,
+dfn {
+	border-bottom: $divider;
+	cursor: help;
+}
+code,
+kbd  {
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	@include rem('padding', 0 4px);
+}
+mark {
+	color: #fff;
+	@include rem('padding', 0 4px);
+	font-style: italic;
+}
+pre,
+tt,
+var {
+	font-family: Consolas, Monaco, Lucida Console, monospace;
+	@include rem('margin', $vbase 0);
+	overflow: auto;
+	code {
+		display: block;
+		@include rem('padding', $fsize);
+	}
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+/*---------------------------------------------------------
+	Media
+------------------------------------------------------------ */
+img,
+embed,
+object,
+video {
+	max-width: 100%;
+}

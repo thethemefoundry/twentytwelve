@@ -1,0 +1,109 @@
+/* _reset.scss
+ * Zero it out ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+// Eric Meyer reset
+// --------------------------------------------------
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+// Normalize.css
+// Pulling in select resets form the normalize.css project
+// --------------------------------------------------
+
+// Display in IE6-9 and FF3
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+html {
+  overflow-y: scroll;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+// Focus states
+a:focus {
+  outline: thin dotted;
+}
+
+// Display in IE6-9 and FF3
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+// Display block in IE6-9 and FF3
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+// Prevents modern browsers from displaying 'audio' without controls
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+audio:not([controls]) {
+    display: none;
+}
+
+// Prevents sub and sup affecting line-height in all browsers
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+// Img border in a's and image quality
+// -------------------------
+// Source: http://github.com/necolas/normalize.css
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}

@@ -1,0 +1,150 @@
+// _preboot.scss Boot me up!
+
+// Variables
+
+// Links
+$link-color:           #177095;
+$link-color-hover:     darken($link-color, 20);
+
+// Fonts
+$font-color:           #444;
+$font-stack:           'Open Sans', Helvetica, Arial, sans-serif;
+$font-accent:          'Open Sans', Helvetica, Arial, sans-serif;
+
+//Column widths
+$width-max:            960;
+
+//Queries
+$breakpoint:           600;
+
+//Baselines
+$fsize:                14px;
+$vbase:                24px;
+$vbase2:               48px;
+$evbase:               24;
+$evbase2:              48;
+$lheight:              (24/14);
+$lheight2:             (48/14);
+
+//Border
+$divider:               1px solid #ededed;
+
+//Mixins
+
+// Clearing floats like a boss h5bp.com/q
+@mixin clear {
+	zoom: 1;
+	&:before, &:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+.clear { 
+	@include clear;
+}
+
+// Gradients
+@mixin horizontal-gradient ($startColor: #555, $endColor: #333) {
+	background-color: $endColor;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, right top, from($startColor), to($endColor)); // Konqueror
+	background-image: -moz-linear-gradient(left, $startColor, $endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(left, $startColor, $endColor); // IE10
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(left, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(left, $startColor, $endColor); // Opera 11.10
+	background-image: linear-gradient(left, $startColor, $endColor); // Le standard
+}
+
+@mixin vertical-gradient ($startColor: #efe7d7, $endColor: #dcd2be) {
+	background-color: $endColor;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from($startColor), to($endColor)); // Konqueror
+	background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(top, $startColor, $endColor); // IE10
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $startColor), color-stop(100%, $endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+	background-image: linear-gradient(top, $startColor, $endColor); // The standard
+}
+
+// Border radius
+@mixin border-radius($radius: 3px) {
+	-webkit-border-radius: $radius;
+		 -moz-border-radius: $radius;
+					border-radius: $radius;
+}
+// Box shadows
+@mixin box-shadow($shadow: 0 1px 3px rgba(64, 56, 41, .20)) {
+	-webkit-box-shadow: $shadow;
+		 -moz-box-shadow: $shadow;
+					box-shadow: $shadow;
+}
+@mixin box-shadow-layered($shadow: 0 1px 3px rgba(0,0,0,.25), $shadow-layered: 0 1px 3px rgba(0,0,0,.25) ) {
+	-webkit-box-shadow: $shadow, $shadow-layered;
+		 -moz-box-shadow: $shadow, $shadow-layered;
+					box-shadow: $shadow, $shadow-layered;
+}
+// Transitions
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	        transition: $transition;
+}
+// Text shadow
+@mixin text-shadow($shadow: #f7f0e3) {
+	text-shadow: 0 1px 0 $shadow;
+}
+//Columns
+@mixin columns($count: 2, $gap: 10px) {
+	-webkit-column-count: $count;
+	-webkit-column-gap: $gap;
+		-moz-column-count: $count;
+		-moz-column-gap: $gap;
+			column-count: $count;
+			column-gap: $gap;
+}
+//Re-usable box border styling
+@mixin box-border($padding: 3px, $shadow: 0 1px 3px rgba(64, 56, 41, .20)) {
+	padding: $padding;
+	line-height: 0;
+	background: #fff;
+	-webkit-box-shadow: $shadow;
+		 -moz-box-shadow: $shadow;
+					box-shadow: $shadow;
+}
+
+//Accent font
+@mixin afont() {
+	font-family: $font-accent;
+	font-weight: 600;
+}
+
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+$baseline-px: 14px;
+
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px / 1rem;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: unquote("");
+    @each $value in $px-values {
+      // If the value is zero, return 0
+      @if $value == 0 {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values; } }
