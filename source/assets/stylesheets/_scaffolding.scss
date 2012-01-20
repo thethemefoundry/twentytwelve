@@ -152,7 +152,8 @@ nav[role="navigation"] {
 		border-bottom: $divider;
 		display: block;
 		@include rem('font-size', 12px);
-		padding: 12px 4px;
+		line-height: ($evbase/13);
+		@include rem('padding', 8px 12px );
 		width: 90px;
 	}
 }
