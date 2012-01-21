@@ -107,22 +107,12 @@ $divider:               1px solid #ededed;
 			column-count: $count;
 			column-gap: $gap;
 }
-//Re-usable box border styling
-@mixin box-border($padding: 3px, $shadow: 0 1px 3px rgba(64, 56, 41, .20)) {
-	padding: $padding;
-	line-height: 0;
-	background: #fff;
-	-webkit-box-shadow: $shadow;
-		 -moz-box-shadow: $shadow;
-					box-shadow: $shadow;
-}
-
 //Accent font
 @mixin afont() {
 	font-family: $font-accent;
 	font-weight: 600;
-}
-
+// Rem generator
+//
 // Baseline, measured in pixels
 // The value should be the same as the font-size value for the html element
 // If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
