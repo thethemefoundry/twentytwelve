@@ -99,7 +99,7 @@ $divider:               1px solid #ededed;
 	text-shadow: 0 1px 0 $shadow;
 }
 //Columns
-@mixin columns($count: 2, $gap: 10px) {
+@mixin columns($count: 2, $gap: 0.714285714rem) {
 	-webkit-column-count: $count;
 	-webkit-column-gap: $gap;
 		-moz-column-count: $count;

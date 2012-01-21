@@ -96,13 +96,13 @@ nav[role="navigation"] {
 	@include rem('margin-top', $vbase);
 	width: 100%;
 	@include rem('font-size', 13px );
-	text-align: center;
 	border: {
 		bottom: $divider;
 		top: $divider;
 	}
-	@media screen and (min-width: 600px) {
-		text-align: left;
+	@media screen and (max-width: 600px) {
+		@include columns;
+		text-align: center;
 	}
 	ul {
 		margin: 0;
@@ -115,6 +115,9 @@ nav[role="navigation"] {
 	li {
 		display: inline-block;
 		text-decoration: none;
+		@media screen and (max-width: 600px) {
+			display: list-item;
+		}
 	}
 	li a {
 		color: $font-color;
@@ -128,8 +131,8 @@ nav[role="navigation"] {
 		a {
 			border-bottom: 0;
 			line-height: ($evbase2/13);
+		}
 	}
-}
 // Submenu
 	li ul {
 		display: none;
