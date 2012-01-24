@@ -35,7 +35,7 @@ config[:comments] = ""
 config[:livereload] = true
 
 # Set a higher precision
-Sass::Script::Number.precision(9)
+Sass::Script::Number.precision = 9
 
 # Compass configuration can also go here.
 # See http://compass-style.org/help/tutorials/configuration-reference/ for some of the options
