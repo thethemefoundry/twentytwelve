@@ -9,7 +9,6 @@ $link-color-hover:     darken($link-color, 20);
 // Fonts
 $font-color:           #444;
 $font-stack:           'Open Sans', Helvetica, Arial, sans-serif;
-$font-accent:          'Open Sans', Helvetica, Arial, sans-serif;
 
 //Column widths
 $width-max:            960;
@@ -106,11 +105,6 @@ $divider:               1px solid #ededed;
 		-moz-column-gap: $gap;
 			column-count: $count;
 			column-gap: $gap;
-}
-//Accent font
-@mixin afont() {
-	font-family: $font-accent;
-	font-weight: 600;
 }
 // Rem generator
 //

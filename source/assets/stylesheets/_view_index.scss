@@ -5,10 +5,10 @@
 	Basic post styling
 ------------------------------------------------------------ */
 header.entry-header {
+	@include rem('margin-bottom', ($vbase2 - 6));
 	h1 {
-		@include afont();
-		@include rem('font-size', 20px);
-		line-height: ($evbase/20);
+		@include rem('font-size', 22px);
+		line-height: ($evbase/22);
 		a {
 			text-decoration: none;
 			color: $font-color;
@@ -17,18 +17,21 @@ header.entry-header {
 			}
 		}
 		@media screen and (min-width: 600px) {
-			@include rem('font-size', 22px);
-			line-height: ($evbase/22);
+			@include rem('font-size', 20px);
+			line-height: ($evbase/20);
 		}
 	}
 }
-div.entry-meta,
-div.comments-link {
-	@include rem('font-size', 13px);
-	line-height: ($evbase/13);
-}
 div.entry-meta {
-	@include rem('margin-top', $vbase);
+	@include rem('margin-top', 6px);
+	@include rem('font-size', 12px);
+	line-height: ($evbase/12);
+	a {
+		color: lighten($font-color, 14);
+		&:hover {
+			color: $link-color;
+		}
+	}
 }
 div.entry-content {
 	p {

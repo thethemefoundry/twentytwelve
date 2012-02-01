@@ -72,12 +72,11 @@ header#masthead {
 			}
 		}
 		h1 {
-			@include afont();
 			@include rem('font-size', $vbase);
 			line-height: ($evbase2/24);
 			@media screen and (min-width: 600px) {
-				@include rem('font-size', 32px );
-				line-height: ($evbase2/32);
+				@include rem('font-size', 30px );
+				line-height: ($evbase2/30);
 			}
 		}
 		h2 {

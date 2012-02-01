@@ -24,12 +24,6 @@
 				<?php twentytwelve_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
-
-			<?php if ( comments_open() && ! post_password_required() ) : ?>
-			<div class="comments-link">
-				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Reply', 'twentytwelve' ) . '</span>', _x( '1 comment', 'comments number', 'twentytwelve' ), _x( '% comments', 'comments number', 'twentytwelve' ) ); ?>
-			</div>
-			<?php endif; ?>
 		</header><!-- .entry-header -->
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
