@@ -11,6 +11,7 @@ html {
 body {
 	@include rem('font-size', $fsize);
 	font-family: $font-stack;
+	text-rendering: optimizeLegibility;
 	color: $font-color;
 }
 a {
