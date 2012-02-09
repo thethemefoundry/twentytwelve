@@ -16,9 +16,6 @@ get_header(); ?>
 
 	<div id="primary">
 		<div id="content" role="main">
-		<section role="banner">
-			<img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/pine-cone.jpg" />
-		</section>
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
