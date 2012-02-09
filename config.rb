@@ -1,32 +1,34 @@
 # The name of the theme
-config[:name] = "twentytwelve"
+config[:name] = "Twenty Twelve"
 
 # The website for the theme
-config[:uri] = ""
+config[:uri] = "http://wordpress.org/extend/themes/twentytwelve"
 
 # The author's name
-config[:author] = ""
+config[:author] = "the WordPress team"
 
 # The author's website
-config[:author_uri] = ""
+config[:author_uri] = "http://wordpress.org/"
 
 # Description of the theme
-config[:description] = ""
+config[:description] = "The 2012 theme for WordPress."
 
 # Version number of the theme
 config[:version_number] = ".5"
 
 # Name of the theme license
-config[:license_name] = "GPL"
+config[:license_name] = "GNU General Public License"
 
 # Website for the theme license
-config[:license_uri] = ""
+config[:license_uri] = "license.txt"
 
 # Tags for this theme, as an array (ex. ["blue", "white", "two-columns"])
-config[:tags] = []
+config[:tags] = ['white', 'light', 'two-columns', 'right-sidebar', 'responsive-width', 'custom-background', 'custom-menu', 'microformats', 'post-formats', 'rtl-language-support', 'translation-ready']
 
 # Additional comments (optional)
-config[:comments] = ""
+config[:comments] = "
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others."
 
 # JavaScript compression
 # config[:compress_js] = false
