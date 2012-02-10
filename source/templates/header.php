@@ -70,6 +70,11 @@ wp_enqueue_style( 'twentytwelve-style', get_bloginfo( 'stylesheet_url' ) );
 			<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'twentytwelve' ); ?>"><?php _e( 'Skip to secondary content', 'twentytwelve' ); ?></a></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>
+
+		<?php $header_image = get_header_image();
+		if ( ! empty( $header_image ) ) : ?>
+			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
+		<?php endif; ?>
 	</header><!-- #masthead -->
 
 	<div id="main">
