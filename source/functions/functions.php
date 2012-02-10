@@ -36,7 +36,7 @@ if ( ! isset( $content_width ) )
  */
 add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
-if ( ! function_exists( 'twentytwelve_setup' ) ):
+if ( ! function_exists( 'twentytwelve_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
