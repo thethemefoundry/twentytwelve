@@ -5,3 +5,4 @@
 docs/_local_config.php
 docs/wp-content/themes/ttf-theme
 docs/wp-content/uploads
+.DS_Store
