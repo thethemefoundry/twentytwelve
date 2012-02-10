@@ -202,3 +202,18 @@ function twentytwelve_posted_on() {
 	);
 }
 endif;
+
+/**
+ * Extends the default WordPress body class to denote a full-width layout.
+ *
+ * Used in two cases: no active widgets in sidebar, and full-width page template.
+ *
+ * @since Twenty Twelve 1.0
+ */
+function twentytwelve_body_class( $classes ) {
+	if ( ! is_active_sidebar( 'sidebar-1' ) || is_page_template( 'full-width' ) )
+		$classes[] = 'full-width';
+
+	return $classes;
+}
+add_filter( 'body_class', 'twentytwelve_body_class' );
