@@ -51,7 +51,7 @@
 if ( is_singular() && get_option( 'thread_comments' ) )
 	wp_enqueue_script( 'comment-reply' );
 
-wp_enqueue_style( 'twentytwelve-style', get_bloginfo( 'stylesheet_url' ) );
+wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 ?>
 <?php wp_head(); ?>
 </head>
