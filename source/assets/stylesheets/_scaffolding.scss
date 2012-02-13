@@ -80,6 +80,7 @@ header#masthead {
 		h1 {
 			@include rem('font-size', $vbase);
 			line-height: ($evbase2/24);
+			font-weight: normal;
 			@media screen and (min-width: 600px) {
 				@include rem('font-size', 30px );
 				line-height: ($evbase2/30);
@@ -89,6 +90,7 @@ header#masthead {
 			font-weight: normal;
 			@include rem('font-size', 13px );
 			line-height: ($evbase/13);
+			color: lighten($font-color, 20);
 		}
 	}
 }
@@ -183,6 +185,12 @@ div#secondary aside {
 	li {
 		@include rem('font-size', 13px);
 		line-height: ($evbase/13);
+	}
+	a {
+		color: lighten($font-color, 20);
+		&:hover {
+			color: $link-color;
+		}
 	}
 }
 /*---------------------------------------------------------

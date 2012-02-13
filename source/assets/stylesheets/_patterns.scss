@@ -5,6 +5,6 @@
 .all-caps-title {
 	text-transform: uppercase;
 	font-weight: 400;
-	@include rem('font-size', 13px);
-	line-height: ($evbase/13);
+	@include rem('font-size', 12px);
+	line-height: ($evbase/12);
 }

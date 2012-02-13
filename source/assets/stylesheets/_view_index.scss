@@ -5,33 +5,32 @@
 	Basic post styling
 ------------------------------------------------------------ */
 header.entry-header {
-	@include rem('margin-bottom', ($vbase2 - 6));
+	@include rem('margin-bottom', $vbase);
 	.entry-title {
-		@include rem('font-size', 22px);
-		line-height: ($evbase/22);
+		@include rem('font-size', 20px);
+		line-height: ($evbase/20);
+		font-weight: normal;
 		a {
 			text-decoration: none;
-			color: $font-color;
-			&:hover {
-				color: $link-color;
-			}
 		}
 		@media screen and (min-width: 600px) {
-			@include rem('font-size', 20px);
-			line-height: ($evbase/20);
+			@include rem('font-size', 22px);
+			line-height: ($evbase/22);
 		}
 	}
 	.entry-format {
 		@include rem('margin-top', $vbase);
 		font-weight: normal;
 	}
+	.entry-meta {
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+		color: lighten($font-color, 20);
+	}
 }
-div.entry-meta {
-	@include rem('margin-top', 6px);
-	@include rem('font-size', 12px);
-	line-height: ($evbase/12);
+.entry-meta {
 	a {
-		color: lighten($font-color, 14);
+		color: lighten($font-color, 20);
 		&:hover {
 			color: $link-color;
 		}
@@ -44,14 +43,21 @@ div.entry-content {
 	}
 }
 div#content article {
-	@include rem('padding-bottom', $vbase2 );
+	@include rem('padding-bottom', $vbase );
 	@include rem('margin-bottom', $vbase2 );
 	border-bottom: $divider;
 }
-div.page-links,
-footer.entry-meta {
+div.page-links {
 	line-height: $lheight;
 }
+footer.entry-meta {
+	@include rem('margin-top', $vbase);
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+	font-style: italic;
+	color: lighten($font-color, 20);
+}
+
 /*---------------------------------------------------------
 	Elements
 ------------------------------------------------------------ */
