@@ -15,12 +15,11 @@
 get_header(); ?>
 
 	<section id="primary">
-		<div id="content" role="main">
+		<div id="content" class="archive" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php
+				<h1 class="archive-title all-caps-title"><?php
 					if ( is_day() ) {
 						printf( __( 'Daily Archives: %s', 'twentytwelve' ), '<span>' . get_the_date() . '</span>' );
 					} elseif ( is_month() ) {
@@ -43,11 +42,9 @@ get_header(); ?>
 						_e( 'Blog Archives', 'twentytwelve' );
 					}
 				?></h1>
-			</header>
 
 			<?php
-			twentytwelve_content_nav( 'nav-above' );
-			
+
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 

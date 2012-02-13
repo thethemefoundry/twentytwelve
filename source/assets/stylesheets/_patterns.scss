@@ -1,0 +1,10 @@
+/* patterns.scss
+ * Repeatable patterns
+ * ------------------------------------------------------------------ */
+
+.all-caps-title {
+	text-transform: uppercase;
+	font-weight: 400;
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+}

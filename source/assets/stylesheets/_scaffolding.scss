@@ -100,7 +100,7 @@ nav[role="navigation"] {
 	display: inline-block;
 	@include rem('margin-top', $vbase);
 	width: 100%;
-	@include rem('font-size', 13px );
+	@include rem('font-size', 13px);
 	border: {
 		bottom: $divider;
 		top: $divider;
@@ -161,7 +161,7 @@ nav[role="navigation"] {
 		display: block;
 		@include rem('font-size', 12px);
 		line-height: ($evbase/13);
-		@include rem('padding', 8px 12px );
+		@include rem('padding', 8px 12px);
 		width: 90px;
 	}
 }
@@ -178,10 +178,6 @@ div#secondary aside {
 	@include rem('margin-bottom', $vbase2 );
 	h3 {
 		@include rem('margin-bottom', $vbase );
-		text-transform: uppercase;
-		font-weight: 300;
-		@include rem('font-size', 13px);
-		line-height: ($evbase/13);
 	}
 	p,
 	li {
