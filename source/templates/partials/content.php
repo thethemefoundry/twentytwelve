@@ -14,7 +14,13 @@
 
 			<?php if ( 'post' == get_post_type() ) : // Hide entry meta for pages ?>
 			<div class="entry-meta">
-				by Drew Strojny
+			<?php
+				printf( __( '<span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span></span>', 'twentytwelve' ),
+					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+					esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
+					get_the_author()
+				);
+			?>
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 			<?php if ( comments_open() ) : ?>
