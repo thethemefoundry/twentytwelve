@@ -28,7 +28,7 @@ a {
 /*---------------------------------------------------------
 	Page structure
 ------------------------------------------------------------ */
-div#page {
+#page {
 	@include rem('padding', 0 $vbase);
 	background-color: #fff;
 	@media screen and (min-width: 600px) {
@@ -37,19 +37,19 @@ div#page {
 		@include rem('max-width', 960px)
 	}
 }
-div#primary {
+#primary {
 	@include rem('margin', $vbase 0);
 	@media screen and (min-width: 600px) {
 		float: left;
 		width: percentage(625/960);
 	}
 }
-body.full-width div#primary {
+body.full-width #primary {
 	@media screen and (min-width: 600px) {
 		width: 100%;
 	}
 }
-div#secondary {
+#secondary {
 	@include rem('margin', $vbase 0);
 	@media screen and (min-width: 600px) {
 		float: right;
