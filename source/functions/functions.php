@@ -59,6 +59,9 @@ function twentytwelve_setup() {
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 
+	// Add support for a variety of post formats
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote' ) );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
 
