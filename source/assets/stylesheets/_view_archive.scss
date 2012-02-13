@@ -2,7 +2,7 @@
  * Styling for the archive view
  * ------------------------------------------------------------------ */
 
-#content.archive {
+.archive #content {
 	h1.archive-title {
 		@include rem('margin-bottom', $vbase2);
 		@include rem('padding-bottom', 22px);

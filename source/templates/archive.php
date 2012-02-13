@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<section id="primary">
-		<div id="content" class="archive" role="main">
+		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
