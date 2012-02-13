@@ -189,4 +189,20 @@ div#secondary aside {
 ------------------------------------------------------------ */
 footer[role="contentinfo"] {
 	clear: both;
+	@include clear();
+	@include rem('max-width', 960px);
+	@include rem('margin-top', $vbase2);
+	@include rem('margin-bottom', $vbase2);
+	margin-left: auto;
+	margin-right: auto;
+	@include rem('padding', $vbase 0);
+	border-top: $divider;
+	a {
+		@include rem('font-size', 12px);
+		line-height: ($evbase/12);
+		color: lighten($font-color, 14);
+		&:hover {
+			color: $link-color;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 ------------------------------------------------------------ */
 header.entry-header {
 	@include rem('margin-bottom', ($vbase2 - 6));
-	h1 {
+	.entry-title {
 		@include rem('font-size', 22px);
 		line-height: ($evbase/22);
 		a {
@@ -20,6 +20,10 @@ header.entry-header {
 			@include rem('font-size', 20px);
 			line-height: ($evbase/20);
 		}
+	}
+	.entry-format {
+		@include rem('margin-top', $vbase);
+		font-weight: normal;
 	}
 }
 div.entry-meta {
@@ -44,7 +48,10 @@ div#content article {
 	@include rem('margin-bottom', $vbase2 );
 	border-bottom: $divider;
 }
-
+div.page-links,
+footer.entry-meta {
+	line-height: $lheight;
+}
 /*---------------------------------------------------------
 	Elements
 ------------------------------------------------------------ */
