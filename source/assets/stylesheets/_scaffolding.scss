@@ -44,6 +44,11 @@ div#primary {
 		width: percentage(625/960);
 	}
 }
+body.full-width div#primary {
+	@media screen and (min-width: 600px) {
+		width: 100%;
+	}
+}
 div#secondary {
 	@include rem('margin', $vbase 0);
 	@media screen and (min-width: 600px) {
