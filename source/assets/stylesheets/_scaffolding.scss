@@ -80,10 +80,9 @@ header#masthead {
 		h1 {
 			@include rem('font-size', $vbase);
 			line-height: ($evbase2/24);
-			font-weight: normal;
 			@media screen and (min-width: 600px) {
-				@include rem('font-size', 30px );
-				line-height: ($evbase2/30);
+				@include rem('font-size', 26px );
+				line-height: ($evbase2/26);
 			}
 		}
 		h2 {
