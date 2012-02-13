@@ -1,0 +1,12 @@
+/* archive.css.scss
+ * Styling for the archive view
+ * ------------------------------------------------------------------ */
+
+#content.archive {
+	h1.archive-title {
+		@include rem('margin-bottom', $vbase2);
+		@include rem('padding-bottom', 22px);
+		border-bottom: $divider;
+		color: lighten($font-color, 20);
+	}
+}
