@@ -59,7 +59,7 @@ body.full-width #primary {
 /*---------------------------------------------------------
 	Header
 ------------------------------------------------------------ */
-header#masthead {
+.site-header {
 	@include rem('padding', $vbase 0);
 	hgroup {
 		h1,
