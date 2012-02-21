@@ -44,8 +44,8 @@ a {
 		width: percentage(625/960);
 	}
 }
-body.full-width #primary {
-	@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
+	body.full-width #primary {
 		width: 100%;
 	}
 }
