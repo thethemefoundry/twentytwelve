@@ -57,17 +57,16 @@ wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site hfeed">
+<div id="page" class="hfeed">
 	<header id="masthead" class="site-header" role="banner">
 		<hgroup>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
-		<nav class="site-navigation" role="navigation">
-			<h3 class="assistive-text"><?php _e( 'Main menu', 'twentytwelve' ); ?></h3>
-			<div class="skip-link"><a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to primary content', 'twentytwelve' ); ?>"><?php _e( 'Skip to primary content', 'twentytwelve' ); ?></a></div>
-			<div class="skip-link"><a class="assistive-text" href="#secondary" title="<?php esc_attr_e( 'Skip to secondary content', 'twentytwelve' ); ?>"><?php _e( 'Skip to secondary content', 'twentytwelve' ); ?></a></div>
+		<nav class="site-navigation main-navigation" role="navigation">
+			<h3 class="assistive-text"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
+			<div class="skip-link assistive-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>
 

@@ -166,6 +166,25 @@ nav[role="navigation"] {
 		width: 90px;
 	}
 }
+// Small menu
+nav[role="navigation"].main-small-navigation {
+	text-align: left;
+}
+.menu-toggle {
+	cursor: pointer;
+	@include rem('font-size', 12px);
+	line-height: ($evbase/13);
+}
+.main-small-navigation .menu {
+	display: none;
+}
+@media screen and (max-width: 600px) {
+	nav[role="navigation"] li a {
+		@include rem('padding', 8px 0);
+		line-height: ($evbase/20);
+	}
+}
+
 /*---------------------------------------------------------
 	Banner
 ------------------------------------------------------------ */
