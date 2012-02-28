@@ -23,8 +23,9 @@ header.entry-header {
 		font-weight: normal;
 	}
 	.entry-meta {
-		@include rem('font-size', 11px);
-		line-height: ($evbase/11);
+		@include rem('margin-top', $vbase);
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
 		color: lighten($font-color, 20);
 	}
 }
@@ -115,8 +116,10 @@ footer.entry-meta {
 	@include rem('margin-top', $vbase);
 	@include rem('font-size', 13px);
 	line-height: ($evbase/13);
-	font-style: italic;
 	color: lighten($font-color, 20);
+}
+footer .edit-link {
+	@include rem('margin-top', $vbase);
 }
 
 /*---------------------------------------------------------
