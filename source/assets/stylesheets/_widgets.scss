@@ -1,0 +1,15 @@
+/* widgets.css.scss
+ * All widget styling
+ * ------------------------------------------------------------------ */
+#wp-calendar {
+	margin: 0;
+	width: 100%;
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+	color: lighten($font-color, 14);
+	th,
+	td,
+	caption {
+		text-align: left;
+	}
+}

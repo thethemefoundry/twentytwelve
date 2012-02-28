@@ -2,7 +2,8 @@
  * Repeatable patterns
  * ------------------------------------------------------------------ */
 
-.all-caps-title {
+.archive-title,
+.widget-title {
 	text-transform: uppercase;
 	font-weight: 400;
 	@include rem('font-size', 12px);
