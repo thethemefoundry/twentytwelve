@@ -270,24 +270,35 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 		default :
 		// Proceed with normal comments.
 	?>
-	<li>
-		<article id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-			<header class="comment-author vcard">
-				<?php echo get_avatar( $comment, $size = '44' ); ?>
-				<?php printf( __( '<cite class="fn">%s</cite>', 'twentytwelve' ), get_comment_author_link() ); ?>
-				<time datetime="<?php echo comment_date( 'c' ); ?>"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s', 'twentytwelve' ), get_comment_date(),	 get_comment_time()); ?></a></time>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+		<article id="comment-<?php comment_ID(); ?>" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<?php
+					echo get_avatar( $comment, 44 );
+
+					printf( '<cite class="fn">%s</cite>', get_comment_author_link() );
+					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+						esc_url( get_comment_link( $comment->comment_ID ) ),
+						get_comment_time( 'c' ),
+						/* translators: 1: date, 2: time */
+						sprintf( __( '%1$s at %2$s', 'twentytwelve' ), get_comment_date(), get_comment_time() )
+					);
+				?>
+				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
 			</header>
 
-			<?php if ( $comment->comment_approved == '0' ) { ?>
-				<p><?php _e( 'Your comment is awaiting moderation.', 'twentytwelve' ) ?></p>
-			<?php } ?>
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentytwelve' ); ?></p>
+			<?php endif; ?>
 
 			<section class="comment post-content">
 				<?php comment_text(); ?>
 			</section>
 
-			<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-		</article>
+			<div class="reply">
+				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'twentytwelve' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+			</div><!-- .reply -->
+		</article><!-- #comment-## -->
 	<?php
 		break;
 	endswitch; // end comment_type check

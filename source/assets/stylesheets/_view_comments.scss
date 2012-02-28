@@ -36,19 +36,17 @@
 				@include rem('font-size', 12px);
 				color: lighten($font-color, 10);
 			}
-			cite a {
-				text-decoration: none;
-				color: $font-color;
-				&:hover {
-					text-decoration: underline;
-					color: $link-color;
-				}
-			}
-			time a {
+			a {
 				text-decoration: none;
 				color: lighten($font-color, 10);
 				&:hover {
 					color: $link-color;
+				}
+			}
+			cite a {
+				color: $font-color;
+				&:hover {
+					text-decoration: underline;
 				}
 			}
 			h4 {
