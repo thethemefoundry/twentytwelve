@@ -13,3 +13,15 @@
 		text-align: left;
 	}
 }
+.widget_search {
+	label {
+		display: block;
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+	}
+	input[type="text"] {
+		@include rem('padding', 6px);
+		border: 1px solid #ccc;
+		@include border-radius();
+	}
+}
