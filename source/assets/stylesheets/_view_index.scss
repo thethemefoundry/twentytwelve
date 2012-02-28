@@ -4,6 +4,9 @@
 /*---------------------------------------------------------
 	Basic post styling
 ------------------------------------------------------------ */
+.entry-meta {
+	clear: both;
+}
 header.entry-header {
 	@include rem('margin-bottom', $vbase);
 	.entry-title {
