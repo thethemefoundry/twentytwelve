@@ -1,0 +1,133 @@
+/* comments.css.scss
+ * Comment styling
+ * ------------------------------------------------------------------ */
+#comments-title {
+	@include rem('margin-bottom', $vbase2);
+	@include rem('font-size', 16px);
+	line-height: ($evbase/16);
+	font-weight: normal;
+}
+#comments {
+	article {
+		@include clear();
+		@include rem('margin', $vbase 0);
+		header {
+			position: relative;
+			@include clear();
+			@include rem('margin', 0 0 $vbase2 0);
+			img {
+				float: left;
+				padding: 0;
+				line-height: 0;
+			}
+			cite,
+			time {
+				display: block;
+				@include rem('margin-left', 85px);
+			}
+			cite {
+				font-style: normal;
+				@include rem('font-size', 15px);
+				line-height: ($evbase/15);
+			}
+			time {
+				line-height: $lheight;
+				text-decoration: none;
+				@include rem('font-size', 12px);
+				color: lighten($font-color, 10);
+			}
+			cite a {
+				text-decoration: none;
+				color: $font-color;
+				&:hover {
+					text-decoration: underline;
+					color: $link-color;
+				}
+			}
+			time a {
+				text-decoration: none;
+				color: lighten($font-color, 10);
+				&:hover {
+					color: $link-color;
+				}
+			}
+			h4 {
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include rem('padding', 6px 12px);
+				@include rem('font-size', 12px);
+				font-weight: normal;
+				color: #fff;
+				@include vertical-gradient($startColor: #009cee, $endColor: #0088d0);
+				@include border-radius();
+				border: 1px solid #007cbd;
+			}
+		}
+		p {
+			@include rem('margin', $vbase 0);
+			line-height: $lheight;
+		}
+	}
+}
+a.comment-reply-link {
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+	color: lighten($font-color, 14);
+	&:hover {
+		color: $link-color;
+	}
+}
+
+/*---------------------------------------------------------
+	Form
+------------------------------------------------------------ */
+#respond {
+	@include rem('margin-top', $vbase2);
+	h3#reply-title {
+		@include rem('font-size', 16px);
+		line-height: ($evbase/16);
+		#cancel-comment-reply-link {
+			@include rem('margin-left', 10px);
+			font-weight: normal;
+			@include rem('font-size', 12px);
+		}
+	}
+	form {
+		@include rem('margin', $vbase 0);
+		p {
+			@include clear();
+			@include rem('margin', 11px 0);
+		}
+		p.logged-in-as {
+			@include rem('margin-bottom', $vbase);
+		}
+		label {
+			display: block;
+			line-height: $lheight;
+		}
+		input[type="text"],
+		textarea {
+			font-family: inherit;
+			line-height: $lheight;
+			@include rem('padding', 10px);
+			border: 1px solid #d5d2ca;
+			@include border-radius();
+			width: 96%;
+		}
+		@media screen and (min-width: 600px) {
+			input[type="text"] {
+				width: percentage(278/600);
+			}
+			textarea.blog-textarea {
+				width: percentage(478/600);
+			}
+		}
+		p.form-allowed-tags {
+			margin: 0;
+			@include rem('font-size', 12px);
+			line-height: ($evbase/12);
+			color: lighten($font-color, 10);
+		}
+	}
+}
