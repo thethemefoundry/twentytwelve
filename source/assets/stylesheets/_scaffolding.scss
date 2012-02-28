@@ -97,7 +97,7 @@ a {
 /*---------------------------------------------------------
 	Navigation
 ------------------------------------------------------------ */
-nav[role="navigation"] {
+nav.main-navigation {
 	display: inline-block;
 	@include rem('margin-top', $vbase);
 	width: 100%;
