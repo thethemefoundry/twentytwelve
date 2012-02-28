@@ -119,7 +119,7 @@ footer.entry-meta {
 	color: lighten($font-color, 20);
 }
 footer .edit-link {
-	@include rem('margin-top', $vbase);
+	@include rem('margin', $vbase 0);
 }
 
 /*---------------------------------------------------------

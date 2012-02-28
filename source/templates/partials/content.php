@@ -30,7 +30,7 @@
 		<?php endif; ?>
 
 		<footer class="entry-meta">
-			<?php twentytwelve_entry_meta(); ?>
 			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<div class="edit-link">', '</div>' ); ?>
+			<?php twentytwelve_entry_meta(); ?>
 		</footer><!-- #entry-meta -->
 	</article><!-- #post -->
