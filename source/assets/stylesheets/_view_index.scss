@@ -37,9 +37,70 @@ header.entry-header {
 	}
 }
 div.entry-content {
-	p {
+	h2,
+	h3,
+	h4 {
 		@include rem('margin', $vbase 0);
 		line-height: $lheight;
+	}
+	h2 {
+		@include rem('font-size', 15px);
+		line-height: ($evbase/15);
+	}
+	h4 {
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+	}
+	p {
+		@include rem('margin', 0 0 $vbase 0);
+		line-height: $lheight;
+	}
+	img {
+		&.alignleft {
+			float: left;
+			@include rem('margin', 0 $vbase 0 0);
+		}
+	}
+	ol, ul {
+		@include rem('margin', 0 0 $vbase 0);
+		line-height: $lheight;
+	}
+	ul {
+		list-style: disc outside;
+	}
+	ol {
+		list-style: decimal outside;
+	}
+	li {
+		@include rem('margin', 0 0 0 $vbase);
+	}
+	code {
+		font-family: Consolas, Monaco, Lucida Console, monospace;
+		@include rem('font-size', 12px);
+		line-height: ($evbase/12);
+	}
+	pre {
+		@include rem('margin', $vbase 0);
+		@include rem('padding', $vbase);
+		line-height: $lheight;
+		font-family: Consolas, Monaco, Lucida Console, monospace;
+		@include rem('font-size', 12px);
+		line-height: ($evbase/12);
+		overflow: auto;
+		code {
+			display: block;
+		}
+	}
+	img.alignleft {
+		float: left;
+		@include rem('margin', 0 $vbase $vbase 0);
+	}
+	img.alignright {
+		float: right;
+		@include rem('margin', 0 0 $vbase $vbase);
+	}
+	iframe {
+		@include rem('margin-bottom', $vbase);
 	}
 }
 div#content article {
@@ -59,35 +120,8 @@ footer.entry-meta {
 }
 
 /*---------------------------------------------------------
-	Elements
+	Extras
 ------------------------------------------------------------ */
-abbr,
-acronym,
-dfn {
-	border-bottom: $divider;
-	cursor: help;
-}
-code,
-kbd  {
-	font-family: Consolas, Monaco, Lucida Console, monospace;
-	@include rem('padding', 0 4px);
-}
-mark {
-	color: #fff;
-	@include rem('padding', 0 4px);
-	font-style: italic;
-}
-pre,
-tt,
-var {
-	font-family: Consolas, Monaco, Lucida Console, monospace;
-	@include rem('margin', $vbase 0);
-	overflow: auto;
-	code {
-		display: block;
-		@include rem('padding', $fsize);
-	}
-}
 .alignleft {
 	float: left;
 }
