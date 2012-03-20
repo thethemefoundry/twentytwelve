@@ -82,6 +82,10 @@ function twentytwelve_setup() {
 
 	// The default header text color
 	define( 'HEADER_TEXTCOLOR', '444' );
+
+	// Add custom image size for featured image use, displayed on "standard" posts.
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 }
 endif;
 
