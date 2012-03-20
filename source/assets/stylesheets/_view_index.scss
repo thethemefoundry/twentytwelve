@@ -41,11 +41,16 @@ header.entry-header {
 	}
 }
 div.entry-content {
+	h1,
 	h2,
 	h3,
 	h4 {
 		@include rem('margin', $vbase 0);
 		line-height: $lheight;
+	}
+	h1 {
+		@include rem('font-size', 16px);
+		line-height: ($evbase/16);
 	}
 	h2 {
 		@include rem('font-size', 15px);
@@ -77,6 +82,10 @@ div.entry-content {
 	}
 	li {
 		@include rem('margin', 0 0 0 $vbase);
+	}
+	blockquote {
+		@include rem('padding', $vbase);
+		font-style: italic;
 	}
 	code {
 		font-family: Consolas, Monaco, Lucida Console, monospace;
