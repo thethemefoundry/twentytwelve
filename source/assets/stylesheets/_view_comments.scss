@@ -129,3 +129,11 @@ a.comment-reply-link {
 		}
 	}
 }
+.required {
+	color: red;
+}
+label ~ span.required {
+	display: block;
+	float: left;
+	margin: -1.2em 0 0 -1.2em;
+}
