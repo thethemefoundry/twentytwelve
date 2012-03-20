@@ -29,7 +29,7 @@ a {
 	Page structure
 ------------------------------------------------------------ */
 #page {
-	@include rem('padding', 0 $vbase);
+	@include rem('padding', 0 40px);
 	background-color: #fff;
 	@media screen and (min-width: 600px) {
 		@include clear();
