@@ -1,0 +1,15 @@
+/* content-image.css.scss
+ * Image post styling
+ * ------------------------------------------------------------------ */
+
+article.format-image {
+	footer h1 {
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+		font-weight: normal;
+	}
+	footer h2 {
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+	}
+}
