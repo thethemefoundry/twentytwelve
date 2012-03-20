@@ -29,13 +29,19 @@ a {
 	Page structure
 ------------------------------------------------------------ */
 #page {
-	@include rem('padding', 0 40px);
+	@include rem('padding', 0 $vbase);
 	background-color: #fff;
 	@media screen and (min-width: 600px) {
 		@include clear();
 		margin: 0 auto;
 		@include rem('max-width', 960px)
 	}
+}
+body.custom-background #page {
+	@include rem('padding', 0 40px);
+	@include rem('margin-top', $vbase2);
+	@include rem('margin-bottom', $vbase2);
+	@include box-shadow(0 2px 6px rgba( 100, 100, 100, .3));
 }
 #primary {
 	@include rem('margin', $vbase 0);
@@ -219,7 +225,6 @@ footer[role="contentinfo"] {
 	@include clear();
 	@include rem('max-width', 960px);
 	@include rem('margin-top', $vbase2);
-	@include rem('margin-bottom', $vbase2);
 	margin-left: auto;
 	margin-right: auto;
 	@include rem('padding', $vbase 0);
