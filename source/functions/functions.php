@@ -192,13 +192,12 @@ function twentytwelve_admin_header_image() { ?>
 endif;
 
 /**
- * Enqueue script for handling navigation.
+ * Enqueue scripts for front-end.
  *
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_scripts() {
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/navigation.js', 'jquery', '20120227', true );
+	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts' );
 
