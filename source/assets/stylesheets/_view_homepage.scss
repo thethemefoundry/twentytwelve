@@ -1,0 +1,21 @@
+/* _view_homepage.css.scss
+ * Home page template styling
+ * ------------------------------------------------------------------ */
+
+section.home-top {
+	@media screen and (min-width: 600px) {
+		h1.entry-title {
+			@include rem('margin', 0 0 $vbase 0);
+		}
+		&.thumbnail {
+			float: left;
+			width: percentage(460/960);
+		}
+	}
+}
+.entry-page-image {
+	@media screen and (min-width: 600px) {
+		float: right;
+		width: percentage(460/960);
+	}
+}
