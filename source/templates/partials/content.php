@@ -10,6 +10,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
+			<?php the_post_thumbnail(); ?>
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 			<div class="entry-meta">
 				<?php if ( comments_open() ) : ?>
@@ -24,7 +25,6 @@
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-			<?php the_post_thumbnail(); ?>
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->

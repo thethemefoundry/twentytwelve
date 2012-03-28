@@ -9,6 +9,9 @@
 }
 header.entry-header {
 	@include rem('margin-bottom', $vbase);
+	img.wp-post-image {
+		@include rem('margin-bottom', $vbase);
+	}
 	.entry-title {
 		@include rem('font-size', 20px);
 		line-height: ($evbase/20);
