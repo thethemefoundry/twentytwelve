@@ -4,10 +4,11 @@
 
 .archive-title,
 .widget-title {
+	@include rem('font-size', 11px);
+	line-height: ($evbase/11);
+	font-weight: bold;
 	text-transform: uppercase;
-	font-weight: 400;
-	@include rem('font-size', 12px);
-	line-height: ($evbase/12);
+	color: lighten($font-color, 10);
 }
 
 /*---------------------------------------------------------
