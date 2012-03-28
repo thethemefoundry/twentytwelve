@@ -51,7 +51,7 @@
 						</a>
 					</div><!-- #author-link	-->
 				</div><!-- #author-description -->
-			</div><!-- #entry-author-info -->
+			</div><!-- #author-info -->
 				<?php endif; ?>
 			<?php endif; // is_single() ?>
 		</footer><!-- .entry-meta -->
