@@ -51,7 +51,8 @@ body.custom-background #page {
 	}
 }
 @media screen and (min-width: 600px) {
-	body.full-width #primary {
+	body.page-template-full-width-page-php #primary,
+	body.page-template-homepage-php #primary {
 		width: 100%;
 	}
 }
