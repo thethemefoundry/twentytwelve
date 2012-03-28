@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content on indexed pages (home, archive, search)
+ * The default template for displaying content. Used for both single and index/archive/search.
  *
  * @package WordPress
  * @subpackage Twenty_Twelve
@@ -11,27 +11,54 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<?php the_post_thumbnail(); ?>
+			<?php if ( is_single() ) : ?>
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<div class="entry-meta">
+				<?php twentytwelve_posted_by() ?>
+			</div><!-- .entry-meta -->
+			<?php else : ?>
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 			<div class="entry-meta">
 				<?php if ( comments_open() ) : ?>
 					<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
 				<?php endif; ?>
 			</div><!-- .entry-meta -->
+			<?php endif; // is_single() ?>
 		</header><!-- .entry-header -->
 
-		<?php if ( is_search() ) : // Only display excerpts for search ?>
-		<div class="entry-summary">
-			<?php the_excerpt(); ?>
-		</div><!-- .entry-summary -->
-		<?php else : ?>
 		<div class="entry-content">
 			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
-		<?php endif; ?>
 
 		<footer class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<div class="edit-link">', '</div>' ); ?>
 			<?php twentytwelve_entry_meta(); ?>
-		</footer><!-- #entry-meta -->
+			<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
+
+			<?php if ( ! is_single() ) : // Displaying index, archive, search ?>
+			<?php if ( comments_open() ) : ?>
+			<span class="sep"> | </span>
+			<span class="comments-link">
+				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a reply', 'twentytwelve' ) . '</span>', __( '1 Reply', 'twentytwelve' ), __( '% Replies', 'twentytwelve' ) ); ?>
+			</span>
+			<?php endif; // comments_open() ?>
+			<?php else : // Displaying single posts ?>
+			<?php if ( get_the_author_meta( 'description' ) && ( ! function_exists( 'is_multi_author' ) || is_multi_author() ) ) : // If a user has filled out their description and this is a multi-author blog, show a bio on their entries ?>
+			<div id="author-info">
+				<div id="author-avatar">
+					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 68 ) ); ?>
+				</div><!-- #author-avatar -->
+				<div id="author-description">
+					<h2><?php printf( __( 'About %s', 'twentytwelve' ), get_the_author() ); ?></h2>
+					<?php the_author_meta( 'description' ); ?>
+					<div id="author-link">
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
+							<?php printf( __( 'View all posts by %s <span class="meta-nav">&rarr;</span>', 'twentytwelve' ), get_the_author() ); ?>
+						</a>
+					</div><!-- #author-link	-->
+				</div><!-- #author-description -->
+			</div><!-- #entry-author-info -->
+				<?php endif; ?>
+			<?php endif; // is_single() ?>
+		</footer><!-- .entry-meta -->
 	</article><!-- #post -->
