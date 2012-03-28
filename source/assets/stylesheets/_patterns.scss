@@ -13,10 +13,10 @@
 /*---------------------------------------------------------
 	Responsive images
 ------------------------------------------------------------ */
-.entry-content img,
-.comment-content img,
-.widget img {
+img {
 	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+	@include border-radius();
+	@include box-shadow();
 }
 img[class*="align"],
 img[class*="wp-image-"],
@@ -34,4 +34,23 @@ img.size-large {
 	margin-bottom: 0;
 	margin-top: 0;
 	padding: 0;
+}
+
+/*---------------------------------------------------------
+	Media
+------------------------------------------------------------ */
+embed,
+object,
+video {
+	max-width: 100%;
+}
+
+/*---------------------------------------------------------
+	Extras
+------------------------------------------------------------ */
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
 }

@@ -77,25 +77,16 @@ $divider:               1px solid #ededed;
 					border-radius: $radius;
 }
 // Box shadows
-@mixin box-shadow($shadow: 0 1px 3px rgba(64, 56, 41, .20)) {
+@mixin box-shadow($shadow: 0 1px 4px rgba(0, 0, 0, .20)) {
 	-webkit-box-shadow: $shadow;
 		 -moz-box-shadow: $shadow;
 					box-shadow: $shadow;
-}
-@mixin box-shadow-layered($shadow: 0 1px 3px rgba(0,0,0,.25), $shadow-layered: 0 1px 3px rgba(0,0,0,.25) ) {
-	-webkit-box-shadow: $shadow, $shadow-layered;
-		 -moz-box-shadow: $shadow, $shadow-layered;
-					box-shadow: $shadow, $shadow-layered;
 }
 // Transitions
 @mixin transition($transition) {
 	-webkit-transition: $transition;
 	   -moz-transition: $transition;
 	        transition: $transition;
-}
-// Text shadow
-@mixin text-shadow($shadow: #f7f0e3) {
-	text-shadow: 0 1px 0 $shadow;
 }
 //Columns
 @mixin columns($count: 2, $gap: 0.714285714rem) {
