@@ -1,0 +1,30 @@
+/* content-link.css.scss
+ * Link post styling
+ * ------------------------------------------------------------------ */
+
+article.format-link {
+	header {
+		@include rem('padding', 0 10px);
+		float: right;
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+		font-weight: bold;
+		font-style: italic;
+		text-transform: uppercase;
+		color: lighten($font-color, 25);
+		background-color: #ebebeb;
+		@include border-radius();
+	}
+	.entry-content {
+		float: left;
+		a {
+			@include rem('font-size', 22px);
+			line-height: ($evbase/22);
+			text-decoration: none;
+		}
+	}
+	footer.entry-meta {
+	@include rem('font-size', 11px);
+	line-height: ($evbase/11);
+	}
+}
