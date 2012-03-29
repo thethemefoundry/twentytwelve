@@ -192,12 +192,21 @@ function twentytwelve_admin_header_image() { ?>
 endif;
 
 /**
- * Enqueue scripts for front-end.
+ * Enqueue scripts and styles for front-end.
  *
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_scripts() {
-	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
+	
+	// Styles
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'twentytwelve-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+
+	// Scripts
+	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts' );
 
