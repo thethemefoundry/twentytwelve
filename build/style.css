@@ -667,6 +667,18 @@ footer .edit-link {
   margin:  1.714285714rem 0;
 }
 
+/* archive.css.scss
+ * Styling for the archive view
+ * ------------------------------------------------------------------ */
+.archive #content h1.archive-title {
+  margin-bottom: 48px;
+  margin-bottom: 3.428571429rem;
+  padding-bottom: 22px;
+  padding-bottom: 1.571428571rem;
+  border-bottom: 1px solid #ededed;
+  color: #777777;
+}
+
 /* content-image.css.scss
  * Image post styling
  * ------------------------------------------------------------------ */
@@ -911,6 +923,27 @@ label ~ span.required {
   margin: -1.2em 0 0 -1.2em;
 }
 
+/* _view_homepage.css.scss
+ * Home page template styling
+ * ------------------------------------------------------------------ */
+@media screen and (min-width: 600px) {
+  section.home-top h1.entry-title {
+    margin: 0 0 24px 0;
+    margin:  0 0 1.714285714rem 0;
+  }
+  section.home-top.thumbnail {
+    float: left;
+    width: 47.916666667%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .entry-page-image {
+    float: right;
+    width: 47.916666667%;
+  }
+}
+
 /* widgets.css.scss
  * All widget styling
  * ------------------------------------------------------------------ */
@@ -941,16 +974,4 @@ label ~ span.required {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-}
-
-/* archive.css.scss
- * Styling for the archive view
- * ------------------------------------------------------------------ */
-.archive #content h1.archive-title {
-  margin-bottom: 48px;
-  margin-bottom: 3.428571429rem;
-  padding-bottom: 22px;
-  padding-bottom: 1.571428571rem;
-  border-bottom: 1px solid #ededed;
-  color: #777777;
 }
