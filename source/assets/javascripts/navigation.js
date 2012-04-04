@@ -11,8 +11,8 @@ jQuery( document ).ready( function( $ ) {
 		masthead.find( '.site-navigation' ).removeClass( 'main-navigation' ).addClass( 'main-small-navigation' );
 		masthead.find( '.site-navigation h3' ).removeClass( 'assistive-text' ).addClass( 'menu-toggle' );
 
-		$( '.menu-toggle' ).click( function() {
-			masthead.find( '.menu' ).toggle();
+		$( '.menu-toggle' ).off( 'click' ).click( function() {
+			masthead.find( '.menu' ).slideToggle();
 			$( this ).toggleClass( 'toggled-on' );
 		} );
 	};
