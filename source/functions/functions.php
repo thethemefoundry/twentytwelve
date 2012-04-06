@@ -191,13 +191,37 @@ function twentytwelve_admin_header_image() { ?>
 <?php }
 endif;
 
+if ( ! function_exists( 'twentytwelve_get_header_image' ) ) :
 /**
- * Enqueue scripts for front-end.
+ * Print Header Image if it exists
+ *
+ * Referenced via header.php
+ *
+ * @since Twenty Twelve 1.0
+ */
+function twentytwelve_get_header_image() {
+	$header_image = get_header_image();
+
+	if ( ! empty( $header_image ) ) ?>
+		<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
+
+<?php }
+endif;
+
+/**
+ * Enqueue scripts and styles for front-end.
  *
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_scripts() {
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+	wp_enqueue_script( 'comment-reply' );
+
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
+
+	wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts' );
 

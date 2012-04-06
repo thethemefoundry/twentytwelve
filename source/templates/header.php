@@ -47,14 +47,7 @@
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/javascripts/html5.js" type="text/javascript"></script>
 <![endif]-->
-<?php
-if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-	wp_enqueue_script( 'comment-reply' );
 
-wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
-
-wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
-?>
 <?php wp_head(); ?>
 </head>
 
@@ -72,10 +65,8 @@ wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>
 
-		<?php $header_image = get_header_image();
-		if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
-		<?php endif; ?>
+		<?php twentytwelve_get_header_image(); ?>
+
 	</header><!-- #masthead -->
 
 	<div id="main">
