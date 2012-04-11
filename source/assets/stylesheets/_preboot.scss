@@ -82,6 +82,11 @@ $divider:               1px solid #ededed;
 		 -moz-box-shadow: $shadow;
 					box-shadow: $shadow;
 }
+@mixin box-shadow-layered($shadow: 0 1px 3px rgba(0,0,0,.25), $shadow-layered: 0 1px 3px rgba(0,0,0,.25) ) {
+	-webkit-box-shadow: $shadow, $shadow-layered;
+		 -moz-box-shadow: $shadow, $shadow-layered;
+					box-shadow: $shadow, $shadow-layered;
+}
 // Transitions
 @mixin transition($transition) {
 	-webkit-transition: $transition;
@@ -89,7 +94,7 @@ $divider:               1px solid #ededed;
 	        transition: $transition;
 }
 //Columns
-@mixin columns($count: 2, $gap: 0.714285714rem) {
+@mixin columns($count: 3, $gap: 0.714285714rem) {
 	-webkit-column-count: $count;
 	-webkit-column-gap: $gap;
 		-moz-column-count: $count;

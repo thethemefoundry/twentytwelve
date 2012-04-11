@@ -76,7 +76,7 @@ body.custom-background #page {
 				text-align: left;
 			}
 			a {
-				color: $font-color;
+				color: lighten($font-color, 5);
 				text-decoration: none;
 				&:hover {
 					color: $link-color;
@@ -108,15 +108,8 @@ nav.main-navigation {
 	display: inline-block;
 	@include rem('margin-top', $vbase);
 	width: 100%;
-	@include rem('font-size', 13px);
-	border: {
-		bottom: $divider;
-		top: $divider;
-	}
-	@media screen and (max-width: 600px) {
-		@include columns;
-		text-align: center;
-	}
+	@include rem('font-size', 12px);
+	border-top: 1px dashed #e8e8e8;
 	ul {
 		margin: 0;
 		text-indent: 0;
@@ -133,9 +126,10 @@ nav.main-navigation {
 		}
 	}
 	li a {
-		color: $font-color;
+		text-transform: uppercase;
+		color: lighten($font-color, 20);
 		&:hover {
-			color: darken($font-color, 15);
+			color: darken($font-color, 30);
 		}
 	}
 	li {
@@ -175,21 +169,48 @@ nav.main-navigation {
 }
 // Small menu
 nav[role="navigation"].main-small-navigation {
-	text-align: left;
+	@include rem('margin-top', $vbase);
+	text-align: center;
+	ul {
+		@include rem('margin-top', $vbase);
+	}
+	li {
+		@include rem('font-size', 12px);
+		line-height: ($evbase/8);
+	}
+	a {
+		color: lighten($font-color, 10);
+		&:hover {
+			color: $link-color;
+		}
+	}
 }
 .menu-toggle {
+	display: inline-block;
+	@include rem('padding', 4px 10px);
 	cursor: pointer;
-	@include rem('font-size', 12px);
-	line-height: ($evbase/13);
+	@include rem('font-size', 11px);
+	line-height: ($evbase/11);
+	font-weight: normal;
+	color: lighten($font-color, 22);
+	@include vertical-gradient($startColor: #f4f4f4, $endColor: #e6e6e6);
+	border: 1px solid #d2d2d2;
+	@include border-radius;
+	@include box-shadow($shadow: 0 1px 2px rgba(64, 64, 64, .10));
+	&:hover {
+		color: lighten($font-color, 10);
+		@include vertical-gradient($startColor: #f9f9f9, $endColor: #ebebeb);
+	}
+	&:active,
+	&.toggled-on {
+		color: lighten($font-color, 20);
+		@include vertical-gradient( $startColor: #ebebeb, $endColor: #e1e1e1 );
+		@include box-shadow-layered( inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4);
+		border: none;
+	}
 }
 .main-small-navigation .menu {
 	display: none;
-}
-@media screen and (max-width: 600px) {
-	nav[role="navigation"] li a {
-		@include rem('padding', 8px 0);
-		line-height: ($evbase/20);
-	}
 }
 
 /*---------------------------------------------------------
