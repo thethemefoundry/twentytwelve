@@ -57,6 +57,9 @@ function twentytwelve_setup() {
 	 */
 	load_theme_textdomain( 'twentytwelve', get_template_directory() . '/languages' );
 
+	// Load up our theme options page and related code.
+	require( get_template_directory() . '/includes/theme-options.php' );
+
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
 

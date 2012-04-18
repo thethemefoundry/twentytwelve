@@ -48,7 +48,11 @@
 if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
 	wp_enqueue_script( 'comment-reply' );
 
-wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+$theme_options = twenty_twelve_get_theme_options();
+if ( 'on' == $theme_options['enable_fonts'] )
+	wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+// TODO handle loading the correct character set based on current language setting
+// For ex: for 'en' we would not need to load the Cyrillic character set
 
 wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 ?>
