@@ -121,8 +121,8 @@ div.entry-content {
 }
 div#content article {
 	@include rem('padding-bottom', $vbase );
-	@include rem('margin-bottom', $vbase2 );
-	border-bottom: $divider;
+	@include rem('margin-bottom', 72px );
+	border-bottom: 4px double #ededed;
 }
 div.page-links {
 	line-height: $lheight;

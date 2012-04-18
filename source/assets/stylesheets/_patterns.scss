@@ -2,6 +2,9 @@
  * Repeatable patterns
  * ------------------------------------------------------------------ */
 
+/*---------------------------------------------------------
+	Small headers
+------------------------------------------------------------ */
 .archive-title,
 .widget-title {
 	@include rem('font-size', 11px);
@@ -9,6 +12,17 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	color: lighten($font-color, 10);
+}
+
+/*---------------------------------------------------------
+	Shared Post Format styling
+------------------------------------------------------------ */
+article.format-quote,
+article.format-link {
+	footer.entry-meta {
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+	}
 }
 
 /*---------------------------------------------------------
