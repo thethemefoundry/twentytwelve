@@ -16,15 +16,12 @@ article.format-link {
 		@include border-radius();
 	}
 	.entry-content {
+		max-width: percentage(500/625);
 		float: left;
 		a {
 			@include rem('font-size', 22px);
 			line-height: ($evbase/22);
 			text-decoration: none;
 		}
-	}
-	footer.entry-meta {
-	@include rem('font-size', 11px);
-	line-height: ($evbase/11);
 	}
 }

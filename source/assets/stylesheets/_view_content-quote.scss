@@ -1,0 +1,19 @@
+/* content-quote.css.scss
+ * Quote post styling
+ * ------------------------------------------------------------------ */
+
+article.format-quote .entry-content {
+	p {
+		margin: 0;
+		@include rem('padding-bottom', $vbase);
+	}
+	blockquote {
+		display: block;
+		@include rem('padding', $vbase $vbase 0 $vbase);
+		@include rem('font-size', 15px);
+		line-height: ($evbase/15);
+		font-style: normal;
+		color: lighten($font-color, 15);
+		background: #efefef;
+	}
+}
