@@ -12,7 +12,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><?php wp_title( '|', true, 'right' ); ?> <?php bloginfo( 'name' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -64,7 +64,7 @@ wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
 		</hgroup>
 
 		<nav class="site-navigation main-navigation" role="navigation">
-			<h3 class="assistive-text"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
+			<h3 class="assistive-text"><?php _e( 'Show navigation', 'twentytwelve' ); ?></h3>
 			<div class="skip-link assistive-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a></div>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>

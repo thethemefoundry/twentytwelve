@@ -41,9 +41,10 @@ if ( ! function_exists( 'twentytwelve_setup' ) ) :
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @uses load_theme_textdomain() For translation/localization support.
- * @uses add_theme_support() To add support for automatic feed links.
+ * @uses add_theme_support() To add support for post thumbnails, automatic feed links, custom headers
+ * 	and backgrounds, and post formats.
  * @uses register_nav_menu() To add support for navigation menus.
- * @uses add_custom_background() To add support for a custom background.
+ * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
  *
  * @since Twenty Twelve 1.0
  */
@@ -66,22 +67,28 @@ function twentytwelve_setup() {
 	register_nav_menu( 'primary', __( 'Primary Menu', 'twentytwelve' ) );
 
 	// Add support for custom background.
-	add_custom_background();
+	add_theme_support( 'custom-background' );
 
 	// Add support for a custom header image.
-	$header_args = array(
+	add_theme_support( 'custom-header', array(
+		// The default header text color.
+		'default-text-color' => '444',
+		// Random image rotation by default.
 		'random-default' => true,
+		// Support flexible height and width.
 		'flex-height' => true,
-		'suggested-height' => apply_filters( 'twentytwelve_header_image_height', 250 ),
 		'flex-width' => true,
-		'max-width' => apply_filters( 'twentytwelve_header_image_max_width', 2000 ),
+		// Set suggested height and width, with a maximum value for the width.
+		'suggested-height' => apply_filters( 'twentytwelve_header_image_height', 250 ),
 		'suggested-width' => apply_filters( 'twentytwelve_header_image_width', 960 ),
-	);
-	add_theme_support( 'custom-header', $header_args );
-	add_custom_image_header( 'twentytwelve_header_style', 'twentytwelve_admin_header_style', 'twentytwelve_admin_header_image' );
-
-	// The default header text color
-	define( 'HEADER_TEXTCOLOR', '444' );
+		'max-width' => apply_filters( 'twentytwelve_header_image_max_width', 2000 ),
+		// Callback for styling the header.
+		'wp-head-callback' => 'twentytwelve_header_style',
+		// Callback for styling the header preview in the admin.
+		'admin-head-callback' => 'twentytwelve_admin_header_style',
+		// Callback used to display the header preview in the admin.
+		'admin-preview-callback' => 'twentytwelve_admin_header_image',
+	) );
 
 	// Add custom image size for featured image use, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
@@ -93,20 +100,21 @@ if ( ! function_exists( 'twentytwelve_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank'), or any hex value
+ * get_header_textcolor() options: 444 is default, hide text (returns 'blank'), or any hex value
  *
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_header_style() {
+	$text_color = get_header_textcolor();
 	// If no custom options for text are set, let's bail
-	if ( HEADER_TEXTCOLOR == get_header_textcolor() )
+	if ( $text_color == get_theme_support( 'custom-header', 'default-text-color' ) )
 		return;
 	// If we get this far, we have custom styles.
 	?>
 	<style type="text/css">
 	<?php
 		// Has the text been hidden?
-		if ( 'blank' == get_header_textcolor() ) :
+		if ( 'blank' == $text_color ) :
 	?>
 		.site-title,
 		.site-description {
@@ -120,7 +128,7 @@ function twentytwelve_header_style() {
 	?>
 		.site-title a,
 		.site-description {
-			color: #<?php echo get_header_textcolor(); ?> !important;
+			color: #<?php echo $text_color; ?> !important;
 		}
 	<?php endif; ?>
 	</style>
@@ -173,13 +181,15 @@ if ( ! function_exists( 'twentytwelve_admin_header_image' ) ) :
  *
  * @since Twenty Twelve 1.0
  */
-function twentytwelve_admin_header_image() { ?>
+function twentytwelve_admin_header_image() {
+	$text_color = get_header_textcolor();
+	?>
 	<div id="headimg">
 		<?php
-		if ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) )
+		if ( 'blank' == $text_color || '' == $text_color )
 			$style = ' style="display:none;"';
 		else
-			$style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
+			$style = ' style="color:#' . $text_color . ';"';
 		?>
 		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<h2 id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
