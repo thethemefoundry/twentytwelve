@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Home
+Template Name: Homepage
 */
 
 get_header(); ?>
@@ -27,4 +27,5 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
+<?php get_sidebar( 'home' ); ?>
 <?php get_footer(); ?>

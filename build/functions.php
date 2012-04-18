@@ -49,6 +49,8 @@ if ( ! function_exists( 'twentytwelve_setup' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_setup() {
+	global $Twenty_Twelve_Options, $twentytwelve_options;
+
 	/**
 	 * Make Twenty Twelve available for translation.
 	 * Translations can be added to the /languages/ directory.
@@ -56,6 +58,10 @@ function twentytwelve_setup() {
 	 * to change 'twentytwelve' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'twentytwelve', get_template_directory() . '/languages' );
+
+	// Load up our theme options page and related code.
+	require( get_template_directory() . '/includes/theme-options.php' );
+	$twentytwelve_options = new Twenty_Twelve_Options();
 
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
@@ -231,6 +237,16 @@ function twentytwelve_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'twentytwelve' ),
 		'id' => 'sidebar-1',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name' => __( 'Homepage Sidebar', 'twentytwelve' ),
+		'id' => 'sidebar-home',
+		'description' => __( 'The sidebar for the optional Homepage Template (only shows on homepage)', 'twentyeleven' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h3 class="widget-title">',

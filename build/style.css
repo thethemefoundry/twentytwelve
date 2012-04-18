@@ -116,6 +116,9 @@ img {
 /* patterns.scss
  * Repeatable patterns
  * ------------------------------------------------------------------ */
+/*---------------------------------------------------------
+	Small headers
+------------------------------------------------------------ */
 .archive-title,
 .widget-title {
   font-size: 11px;
@@ -124,6 +127,16 @@ img {
   font-weight: bold;
   text-transform: uppercase;
   color: #5e5e5e;
+}
+
+/*---------------------------------------------------------
+	Shared Post Format styling
+------------------------------------------------------------ */
+article.format-quote footer.entry-meta,
+article.format-link footer.entry-meta {
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  line-height: 2.181818182;
 }
 
 /*---------------------------------------------------------
@@ -692,9 +705,9 @@ div.entry-content iframe {
 div#content article {
   padding-bottom: 24px;
   padding-bottom: 1.714285714rem;
-  margin-bottom: 48px;
-  margin-bottom: 3.428571429rem;
-  border-bottom: 1px solid #ededed;
+  margin-bottom: 72px;
+  margin-bottom: 5.142857143rem;
+  border-bottom: 4px double #ededed;
 }
 
 div.page-links {
@@ -762,6 +775,7 @@ article.format-link header {
   border-radius: 3px;
 }
 article.format-link .entry-content {
+  max-width: 80%;
   float: left;
 }
 article.format-link .entry-content a {
@@ -770,10 +784,25 @@ article.format-link .entry-content a {
   line-height: 1.090909091;
   text-decoration: none;
 }
-article.format-link footer.entry-meta {
-  font-size: 11px;
-  font-size: 0.785714286rem;
-  line-height: 2.181818182;
+
+/* content-quote.css.scss
+ * Quote post styling
+ * ------------------------------------------------------------------ */
+article.format-quote .entry-content p {
+  margin: 0;
+  padding-bottom: 24px;
+  padding-bottom: 1.714285714rem;
+}
+article.format-quote .entry-content blockquote {
+  display: block;
+  padding: 24px 24px 0 24px;
+  padding:  1.714285714rem 1.714285714rem 0 1.714285714rem;
+  font-size: 15px;
+  font-size: 1.071428571rem;
+  line-height: 1.6;
+  font-style: normal;
+  color: #6a6a6a;
+  background: #efefef;
 }
 
 /* comments.css.scss
