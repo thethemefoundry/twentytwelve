@@ -49,6 +49,8 @@ if ( ! function_exists( 'twentytwelve_setup' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_setup() {
+	global $Twenty_Twelve_Options, $twentytwelve_options;
+
 	/**
 	 * Make Twenty Twelve available for translation.
 	 * Translations can be added to the /languages/ directory.
@@ -59,6 +61,7 @@ function twentytwelve_setup() {
 
 	// Load up our theme options page and related code.
 	require( get_template_directory() . '/includes/theme-options.php' );
+	$twentytwelve_options = new Twenty_Twelve_Options();
 
 	// Add default posts and comments RSS feed links to <head>.
 	add_theme_support( 'automatic-feed-links' );
