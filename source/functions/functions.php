@@ -246,7 +246,7 @@ function twentytwelve_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Homepage Sidebar', 'twentytwelve' ),
 		'id' => 'sidebar-home',
-		'description' => __( 'The sidebar for the optional Homepage Template (only shows on homepage)', 'twentyeleven' ),
+		'description' => __( 'The sidebar for the optional Homepage Template (only shows on homepage)', 'twentytwelve' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h3 class="widget-title">',
