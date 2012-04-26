@@ -12,7 +12,7 @@ class Twenty_Twelve_Options {
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	var $option_key = '';
+	var $option_key = 'twentytwelve_theme_options';
 
 	/**
 	 * Initialize our options.
