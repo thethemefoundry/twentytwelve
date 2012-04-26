@@ -43,10 +43,6 @@ class Twenty_Twelve_Options {
 		// Load our options for use in any method.
 		$this->options = $this->get_theme_options();
 
-		// If we have no options in the database, let's add them now.
-		if ( false === $this->options )
-			add_option( $this->option_key, $this->get_default_theme_options() );
-
 		// Register our option group.
 		register_setting(
 			'twentytwelve_options',    // Options group, see settings_fields() call in render_page()
