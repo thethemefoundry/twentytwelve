@@ -19,3 +19,22 @@ section.home-top {
 		width: percentage(460/960);
 	}
 }
+.page-template-homepage-php {
+	#secondary {
+		clear: both;
+		float: none;
+		width: auto;
+		@include rem('padding-top', $vbase);
+		border-top: $divider;
+		aside {
+			@media screen and (min-width: 600px) {
+				float: left;
+				width: percentage(210/960);
+				@include rem('margin', 0 40px $vbase 0);
+				&:nth-child(4n+4) {
+					@include rem('margin', 0 0 $vbase 0);
+				}
+			}
+		}
+	}
+}
