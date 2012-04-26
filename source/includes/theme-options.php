@@ -34,10 +34,8 @@ class Twenty_Twelve_Options {
 	 * This function is attached to the admin_init action hook.
 	 *
 	 * This call to register_setting() registers a validation callback, validate(),
-	 * which is used when the option is saved, to ensure that our option values are complete, properly
+	 * which is used when the option is saved, to ensure that our option values are properly
 	 * formatted, and safe.
-	 *
-	 * We also use this function to add our theme option if it doesn't already exist.
 	 */
 	function options_init() {
 		// Load our options for use in any method.
