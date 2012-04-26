@@ -12,7 +12,7 @@ class Twenty_Twelve_Options {
 	 * The option value in the database will be based on get_stylesheet()
 	 * so child themes don't share the parent theme's option value.
 	 */
-	var $option_key = '';
+	var $option_key = 'twentytwelve_theme_options';
 
 	/**
 	 * Initialize our options.
@@ -34,18 +34,12 @@ class Twenty_Twelve_Options {
 	 * This function is attached to the admin_init action hook.
 	 *
 	 * This call to register_setting() registers a validation callback, validate(),
-	 * which is used when the option is saved, to ensure that our option values are complete, properly
+	 * which is used when the option is saved, to ensure that our option values are properly
 	 * formatted, and safe.
-	 *
-	 * We also use this function to add our theme option if it doesn't already exist.
 	 */
 	function options_init() {
 		// Load our options for use in any method.
 		$this->options = $this->get_theme_options();
-		
-		// If we have no options in the database, let's add them now.
-		if ( false === $this->options )
-			add_option( $this->option_key, $this->get_default_theme_options() );
 
 		// Register our option group.
 		register_setting(
@@ -102,7 +96,7 @@ class Twenty_Twelve_Options {
 	 * Returns the options array.
 	 */
 	function get_theme_options() {
-		return get_option( $this->option_key, array( $this, 'get_default_theme_options' ) );
+		return get_option( $this->option_key, $this->get_default_theme_options() );
 	}
 
 	/**
@@ -125,7 +119,8 @@ class Twenty_Twelve_Options {
 		?>
 		<div class="wrap">
 			<?php screen_icon(); ?>
-			<h2><?php printf( __( '%s Theme Options', 'twentytwelve' ), get_current_theme() ); ?></h2>
+			<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
+			<h2><?php printf( __( '%s Theme Options', 'twentyeleven' ), $theme_name ); ?></h2>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
@@ -146,7 +141,7 @@ class Twenty_Twelve_Options {
 	 */
 	function validate( $input ) {
 		$output = $defaults = $this->get_default_theme_options();
-		
+
 		// The enable fonts checkbox should either be on or off
 		if ( ! isset( $input['enable_fonts'] ) )
 			$input['enable_fonts'] = 'off';
