@@ -7,6 +7,6 @@
 		@include rem('margin-bottom', $vbase2);
 		@include rem('padding-bottom', 22px);
 		border-bottom: $divider;
-		color: lighten($font-color, 20);
+		color: lighten($font-color, 12);
 	}
 }
