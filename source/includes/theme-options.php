@@ -42,7 +42,7 @@ class Twenty_Twelve_Options {
 	function options_init() {
 		// Load our options for use in any method.
 		$this->options = $this->get_theme_options();
-		
+
 		// If we have no options in the database, let's add them now.
 		if ( false === $this->options )
 			add_option( $this->option_key, $this->get_default_theme_options() );
@@ -102,7 +102,7 @@ class Twenty_Twelve_Options {
 	 * Returns the options array.
 	 */
 	function get_theme_options() {
-		return get_option( $this->option_key, array( $this, 'get_default_theme_options' ) );
+		return get_option( $this->option_key, $this->get_default_theme_options() );
 	}
 
 	/**
@@ -146,7 +146,7 @@ class Twenty_Twelve_Options {
 	 */
 	function validate( $input ) {
 		$output = $defaults = $this->get_default_theme_options();
-		
+
 		// The enable fonts checkbox should either be on or off
 		if ( ! isset( $input['enable_fonts'] ) )
 			$input['enable_fonts'] = 'off';
