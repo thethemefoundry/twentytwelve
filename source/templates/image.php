@@ -70,8 +70,8 @@ if ( count( $attachments ) > 1 ) {
 }
 ?>
 								<a href="<?php echo esc_url( $next_attachment_url ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php
-								$attachment_size = apply_filters( 'twentytwelve_attachment_size', 800 );
-								echo wp_get_attachment_image( $post->ID, array( $attachment_size, $attachment_size ) );
+								$attachment_size = apply_filters( 'twentytwelve_attachment_size', array( 800, 800 ) );
+								echo wp_get_attachment_image( $post->ID, $attachment_size ) );
 								?></a>
 
 								<?php if ( ! empty( $post->post_excerpt ) ) : ?>
