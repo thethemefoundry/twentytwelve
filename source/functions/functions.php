@@ -120,7 +120,7 @@ function twentytwelve_header_style() {
 	<style type="text/css">
 	<?php
 		// Has the text been hidden?
-		if ( 'blank' == $text_color ) :
+		if ( ! display_header_text() ) :
 	?>
 		.site-title,
 		.site-description {
@@ -188,14 +188,13 @@ if ( ! function_exists( 'twentytwelve_admin_header_image' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_admin_header_image() {
-	$text_color = get_header_textcolor();
 	?>
 	<div id="headimg">
 		<?php
-		if ( 'blank' == $text_color || '' == $text_color )
+		if ( ! display_header_text() )
 			$style = ' style="display:none;"';
 		else
-			$style = ' style="color:#' . $text_color . ';"';
+			$style = ' style="color:#' . get_header_textcolor() . ';"';
 		?>
 		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<h2 id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
