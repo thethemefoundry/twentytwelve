@@ -109,7 +109,8 @@ nav.main-navigation {
 	@include rem('margin-top', $vbase);
 	width: 100%;
 	@include rem('font-size', 12px);
-	border-top: 1px dashed #e8e8e8;
+	border-top: $divider;
+	border-bottom: $divider;
 	ul {
 		margin: 0;
 		text-indent: 0;
@@ -127,7 +128,7 @@ nav.main-navigation {
 	}
 	li a {
 		text-transform: uppercase;
-		color: lighten($font-color, 20);
+		color: lighten($font-color, 15);
 		&:hover {
 			color: darken($font-color, 30);
 		}
