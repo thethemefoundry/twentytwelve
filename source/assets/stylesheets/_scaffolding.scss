@@ -38,10 +38,12 @@ a {
 	}
 }
 body.custom-background #page {
-	@include rem('padding', 0 40px);
-	@include rem('margin-top', $vbase2);
-	@include rem('margin-bottom', $vbase2);
-	@include box-shadow(0 2px 6px rgba( 100, 100, 100, .3));
+	@media screen and (min-width: 600px) {
+		@include rem('padding', 0 40px);
+		@include rem('margin-top', $vbase2);
+		@include rem('margin-bottom', $vbase2);
+		@include box-shadow(0 2px 6px rgba( 100, 100, 100, .3));
+	}
 }
 #primary {
 	@include rem('margin', $vbase 0);
