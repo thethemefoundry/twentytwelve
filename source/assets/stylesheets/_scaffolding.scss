@@ -124,7 +124,7 @@ nav.main-navigation {
 	li {
 		display: inline-block;
 		text-decoration: none;
-		@media screen and (max-width: 600px) {
+		.main-small-navigation {
 			display: list-item;
 		}
 	}
