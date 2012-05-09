@@ -1,9 +1,15 @@
 /* _view_homepage.css.scss
  * Home page template styling
  * ------------------------------------------------------------------ */
-
-section.home-top {
+div.home-top,
+div.home-middle {
 	@media screen and (min-width: 600px) {
+		@include clear();
+	}
+}
+section.home-content {
+	@media screen and (min-width: 600px) {
+		@include clear();
 		h1.entry-title {
 			@include rem('margin', 0 0 $vbase 0);
 		}
@@ -19,7 +25,68 @@ section.home-top {
 		width: percentage(460/960);
 	}
 }
+div.home-middle {
+	@include rem('margin-top', $vbase);
+	@include rem('padding-top', $vbase);
+	border-top: $divider;
+	div.about,
+	div.latest-news {
+		@media screen and (min-width: 600px) {
+			width: percentage(460/960);
+			@include rem('margin', $vbase 0);
+		}
+		h1 {
+			@include rem('margin-bottom', $vbase);
+			color: lighten($font-color, 8);
+		}
+	}
+	div.about {
+		@media screen and (min-width: 600px) {
+			float: left;
+			width: percentage(498/960);
+		}
+		img {
+			float: left;
+			@include rem('margin-top', 5px);
+		}
+		p {
+			@include rem('margin-left', 123px);
+			@include rem('font-size', 13px);
+			line-height: ($evbase/13);
+		}
+	}
+	div.latest-news {
+		@media screen and (min-width: 600px) {
+			float: right;
+			width: percentage(375/960);
+		}
+		li {
+			@include rem('margin', 8px 0 0 0);
+			@include rem('font-size', 13px);
+			line-height: ($evbase/13);
+			line-height: $lheight;
+			list-style-type: square;
+			list-style-position: inside;
+			color: lighten($font-color, 20);
+			a {
+				color: lighten($font-color, 20);
+				&:hover {
+					color: $link-color;
+				}
+			}
+			time {
+				@include rem('margin-left', 20px);
+				@include rem('font-size', 12px);
+			}
+		}
+	}
+}
 .page-template-homepage-php {
+	@media screen and (min-width: 600px) {
+		#content {
+			@include clear();
+		}
+	}
 	#secondary {
 		clear: both;
 		float: none;
