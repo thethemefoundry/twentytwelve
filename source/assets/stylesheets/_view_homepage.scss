@@ -75,8 +75,9 @@ div.home-middle {
 				}
 			}
 			time {
-				@include rem('margin-left', 20px);
-				@include rem('font-size', 12px);
+				@include rem('margin-left', 12px);
+				@include rem('font-size', 11px);
+				color: lighten($font-color, 40);
 			}
 		}
 	}
