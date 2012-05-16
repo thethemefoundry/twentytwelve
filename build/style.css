@@ -251,7 +251,7 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
   body.custom-background #page {
     padding: 0 40px;
     padding:  0 2.857142857rem;
@@ -318,7 +318,6 @@ a:hover {
 .site-header hgroup h1 a:hover,
 .site-header hgroup h2 a:hover {
   color: #21759b;
-  text-decoration: underline;
 }
 .site-header hgroup h1 {
   font-size: 24px;
@@ -1008,11 +1007,38 @@ label ~ span.required {
  * Home page template styling
  * ------------------------------------------------------------------ */
 @media screen and (min-width: 600px) {
-  section.home-top h1.entry-title {
+  div.home-top,
+  div.home-middle {
+    zoom: 1;
+  }
+  div.home-top:before, div.home-top:after,
+  div.home-middle:before,
+  div.home-middle:after {
+    display: table;
+    content: "";
+  }
+  div.home-top:after,
+  div.home-middle:after {
+    clear: both;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  section.home-content {
+    zoom: 1;
+  }
+  section.home-content:before, section.home-content:after {
+    display: table;
+    content: "";
+  }
+  section.home-content:after {
+    clear: both;
+  }
+  section.home-content h1.entry-title {
     margin: 0 0 24px 0;
     margin:  0 0 1.714285714rem 0;
   }
-  section.home-top.thumbnail {
+  section.home-content.thumbnail {
     float: left;
     width: 47.916666667%;
   }
@@ -1022,9 +1048,23 @@ label ~ span.required {
   .entry-page-image {
     float: right;
     width: 47.916666667%;
+    margin-bottom: 24px;
+    margin-bottom: 1.714285714rem;
   }
 }
 
+@media screen and (min-width: 600px) {
+  .page-template-homepage-php #content {
+    zoom: 1;
+  }
+  .page-template-homepage-php #content:before, .page-template-homepage-php #content:after {
+    display: table;
+    content: "";
+  }
+  .page-template-homepage-php #content:after {
+    clear: both;
+  }
+}
 .page-template-homepage-php #secondary {
   clear: both;
   float: none;
@@ -1033,14 +1073,44 @@ label ~ span.required {
   padding-top: 1.714285714rem;
   border-top: 1px solid #ededed;
 }
+.page-template-homepage-php #secondary aside li {
+  margin: 8px 0 0 0;
+  margin:  0.571428571rem 0 0 0;
+  font-size: 13px;
+  font-size: 0.928571429rem;
+  line-height: 1.846153846;
+  line-height: 1.714285714;
+  list-style-type: square;
+  list-style-position: inside;
+}
+.page-template-homepage-php #secondary aside li a {
+  color: #777777;
+}
+.page-template-homepage-php #secondary aside li a:hover {
+  color: #21759b;
+}
+.page-template-homepage-php #secondary aside li time {
+  margin-left: 12px;
+  margin-left: 0.857142857rem;
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  color: #aaaaaa;
+}
+.page-template-homepage-php #secondary aside.widget_text img {
+  float: left;
+  margin: 8px 24px 24px 0;
+  margin:  0.571428571rem 1.714285714rem 1.714285714rem 0;
+}
 @media screen and (min-width: 600px) {
   .page-template-homepage-php #secondary aside {
     float: left;
-    width: 21.875%;
-    margin: 0 40px 24px 0;
-    margin:  0 2.857142857rem 1.714285714rem 0;
+    width: 51.875%;
+    margin-bottom: 24px;
+    margin-bottom: 1.714285714rem;
   }
-  .page-template-homepage-php #secondary aside:nth-child(4n+4) {
+  .page-template-homepage-php #secondary aside:nth-child(even) {
+    float: right;
+    width: 39.0625%;
     margin: 0 0 24px 0;
     margin:  0 0 1.714285714rem 0;
   }
