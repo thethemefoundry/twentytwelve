@@ -120,7 +120,7 @@ function twentytwelve_header_style() {
 	<style type="text/css">
 	<?php
 		// Has the text been hidden?
-		if ( 'blank' == $text_color ) :
+		if ( ! display_header_text() ) :
 	?>
 		.site-title,
 		.site-description {
@@ -188,14 +188,13 @@ if ( ! function_exists( 'twentytwelve_admin_header_image' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_admin_header_image() {
-	$text_color = get_header_textcolor();
 	?>
 	<div id="headimg">
 		<?php
-		if ( 'blank' == $text_color || '' == $text_color )
+		if ( ! display_header_text() )
 			$style = ' style="display:none;"';
 		else
-			$style = ' style="color:#' . $text_color . ';"';
+			$style = ' style="color:#' . get_header_textcolor() . ';"';
 		?>
 		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<h2 id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
@@ -237,6 +236,7 @@ function twentytwelve_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'twentytwelve' ),
 		'id' => 'sidebar-1',
+		'description' => __( 'Appears on posts and pages except the optional Homepage template, which uses its own set of widgets', 'twentytwelve' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h3 class="widget-title">',
@@ -244,9 +244,9 @@ function twentytwelve_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name' => __( 'Homepage Sidebar', 'twentytwelve' ),
+		'name' => __( 'Homepage Widgets', 'twentytwelve' ),
 		'id' => 'sidebar-home',
-		'description' => __( 'The sidebar for the optional Homepage Template (only shows on homepage)', 'twentytwelve' ),
+		'description' => __( 'Appears when using the optional homepage template with a page set as Static Front Page', 'twentytwelve' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h3 class="widget-title">',
