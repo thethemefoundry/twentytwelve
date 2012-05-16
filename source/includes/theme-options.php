@@ -114,6 +114,8 @@ class Twenty_Twelve_Options {
 
 	/**
 	 * Returns the options array.
+	 *
+	 * @uses get_current_theme() for back compat, fallback for < 3.4
 	 */
 	function render_page() {
 		?>
