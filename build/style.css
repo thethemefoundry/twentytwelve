@@ -251,16 +251,18 @@ a:hover {
   }
 }
 
-body.custom-background #page {
-  padding: 0 40px;
-  padding:  0 2.857142857rem;
-  margin-top: 48px;
-  margin-top: 3.428571429rem;
-  margin-bottom: 48px;
-  margin-bottom: 3.428571429rem;
-  -webkit-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
-  -moz-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
-  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+@media screen and (min-width: 600px) {
+  body.custom-background #page {
+    padding: 0 40px;
+    padding:  0 2.857142857rem;
+    margin-top: 48px;
+    margin-top: 3.428571429rem;
+    margin-bottom: 48px;
+    margin-bottom: 3.428571429rem;
+    -webkit-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    -moz-box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+    box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+  }
 }
 
 #primary {
@@ -348,7 +350,8 @@ nav.main-navigation {
   width: 100%;
   font-size: 12px;
   font-size: 0.857142857rem;
-  border-top: 1px dashed #e8e8e8;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
 }
 nav.main-navigation ul {
   margin: 0;
@@ -362,15 +365,13 @@ nav.main-navigation li {
   display: inline-block;
   text-decoration: none;
 }
-@media screen and (max-width: 600px) {
-  nav.main-navigation li a,
-  nav.main-navigation li {
-    display: list-item;
-  }
+nav.main-navigation li a .main-small-navigation,
+nav.main-navigation li .main-small-navigation {
+  display: list-item;
 }
 nav.main-navigation li a {
   text-transform: uppercase;
-  color: #777777;
+  color: #6a6a6a;
 }
 nav.main-navigation li a:hover {
   color: black;
@@ -1021,6 +1022,27 @@ label ~ span.required {
   .entry-page-image {
     float: right;
     width: 47.916666667%;
+  }
+}
+
+.page-template-homepage-php #secondary {
+  clear: both;
+  float: none;
+  width: auto;
+  padding-top: 24px;
+  padding-top: 1.714285714rem;
+  border-top: 1px solid #ededed;
+}
+@media screen and (min-width: 600px) {
+  .page-template-homepage-php #secondary aside {
+    float: left;
+    width: 21.875%;
+    margin: 0 40px 24px 0;
+    margin:  0 2.857142857rem 1.714285714rem 0;
+  }
+  .page-template-homepage-php #secondary aside:nth-child(4n+4) {
+    margin: 0 0 24px 0;
+    margin:  0 0 1.714285714rem 0;
   }
 }
 

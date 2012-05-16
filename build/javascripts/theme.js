@@ -6,6 +6,7 @@
 
 jQuery( document ).ready( function( $ ) {
 	var masthead = $( '#masthead' ),
+		largeWindow = window.matchMedia( 'screen and (min-width: 600px)' ),
 	    timeout = false;
 
 	$.fn.smallMenu = function() {
@@ -19,18 +20,16 @@ jQuery( document ).ready( function( $ ) {
 	};
 
 	// Check viewport width on first load.
-	if ( $( window ).width() < 600 )
+	if ( ! largeWindow.matches )
 		$.fn.smallMenu();
 
 	// Check viewport width when user resizes the browser window.
 	$( window ).resize( function() {
-		var browserWidth = $( window ).width();
-
 		if ( false !== timeout )
 			clearTimeout( timeout );
 
 		timeout = setTimeout( function() {
-			if ( browserWidth < 600 ) {
+			if ( ! largeWindow.matches ) {
 				$.fn.smallMenu();
 			} else {
 				masthead.find( '.site-navigation' ).removeClass( 'main-small-navigation' ).addClass( 'main-navigation' );
