@@ -23,6 +23,7 @@ section.home-content {
 	@media screen and (min-width: 600px) {
 		float: right;
 		width: percentage(460/960);
+		@include rem('margin-bottom', $vbase);
 	}
 }
 div.home-middle {
@@ -31,9 +32,9 @@ div.home-middle {
 	border-top: $divider;
 	div.about,
 	div.latest-news {
+		@include rem('margin', $vbase 0);
 		@media screen and (min-width: 600px) {
 			width: percentage(460/960);
-			@include rem('margin', $vbase 0);
 		}
 		h1 {
 			@include rem('margin-bottom', $vbase);
@@ -44,13 +45,15 @@ div.home-middle {
 		@media screen and (min-width: 600px) {
 			float: left;
 			width: percentage(498/960);
+			p {
+				@include rem('margin-left', 123px);
+			}
 		}
 		img {
 			float: left;
-			@include rem('margin-top', 5px);
+			@include rem('margin', 5px $vbase $vbase 0);
 		}
 		p {
-			@include rem('margin-left', 123px);
 			@include rem('font-size', 13px);
 			line-height: ($evbase/13);
 		}
@@ -98,7 +101,8 @@ div.home-middle {
 			@media screen and (min-width: 600px) {
 				float: left;
 				width: percentage(210/960);
-				@include rem('margin', 0 40px $vbase 0);
+				@include rem('margin-bottom', $vbase);
+				margin-right: 4.166666667%;
 				&:nth-child(4n+4) {
 					@include rem('margin', 0 0 $vbase 0);
 				}
