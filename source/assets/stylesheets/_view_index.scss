@@ -28,13 +28,14 @@ header.entry-header {
 		@include rem('margin-top', $vbase);
 		font-weight: normal;
 	}
-	.entry-meta {
+	.comments-link {
 		@include rem('margin-top', $vbase);
 		@include rem('font-size', 13px);
 		line-height: ($evbase/13);
 		color: lighten($font-color, 20);
 	}
 }
+.comments-link,
 .entry-meta {
 	a {
 		color: lighten($font-color, 20);
