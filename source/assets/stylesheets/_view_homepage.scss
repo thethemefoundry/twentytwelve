@@ -60,7 +60,7 @@ section.home-content {
 			}
 			&.widget_text img {
 				float: left;
-				@include rem('margin', 8px $vbase $vbase 0);
+				@include rem('margin', 8px $vbase 8px 0);
 			}
 			@media screen and (min-width: 600px) {
 				float: left;
