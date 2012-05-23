@@ -1,0 +1,28 @@
+/* content-aside.css.scss
+ * Aside post styling
+ * ------------------------------------------------------------------ */
+
+article.format-aside {
+	h1 {
+		@include rem('margin-bottom', $vbase);
+		a {
+			text-decoration: none;
+			color: #3f495a;
+			&:hover {
+				color: #2e3542;
+			}
+		}
+	}
+	.aside {
+		@include rem('padding', $vbase $vbase 0 $vbase);
+		background: #d2e0f9;
+		border-left: 22px solid #a8bfe8;
+	}
+	p {
+		margin: 0;
+		@include rem('padding-bottom', $vbase);
+		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+		color: #4a5466;
+	}
+}
