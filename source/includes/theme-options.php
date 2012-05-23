@@ -24,8 +24,9 @@ class Twenty_Twelve_Options {
 		if ( 'twentytwelve' != get_stylesheet() )
 			$this->option_key = get_stylesheet() . '_theme_options';
 
-		add_action( 'admin_init', array( $this, 'options_init' ) );
-		add_action( 'admin_menu', array( $this, 'add_page'     ) );
+		add_action( 'admin_init',         array( $this, 'options_init'       ) );
+		add_action( 'admin_menu',         array( $this, 'add_page'           ) );
+		add_action( 'customize_register', array( $this, 'customize_register' ) );
 	}
 
 	/**
@@ -86,7 +87,7 @@ class Twenty_Twelve_Options {
 	 */
 	function get_default_theme_options() {
 		$default_theme_options = array(
-			'enable_fonts' => 'off',
+			'enable_fonts' => false,
 		);
 
 		return apply_filters( 'twentytwelve_default_theme_options', $default_theme_options );
@@ -106,7 +107,7 @@ class Twenty_Twelve_Options {
 		$options = $this->options;
 		?>
 		<label for"enable-fonts">
-			<input type="checkbox" name="<?php echo $this->option_key; ?>[enable_fonts]" id="enable-fonts" <?php checked( 'on', $options['enable_fonts'] ); ?> />
+			<input type="checkbox" name="<?php echo $this->option_key; ?>[enable_fonts]" id="enable-fonts" <?php checked( $options['enable_fonts'] ); ?> />
 			<?php _e( 'Yes, I&#8217;d like to enable the gorgeous, open-source <em>Open Sans</em> typeface.', 'twentytwelve' );  ?>
 		</label>
 		<?php
@@ -122,7 +123,7 @@ class Twenty_Twelve_Options {
 		<div class="wrap">
 			<?php screen_icon(); ?>
 			<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
-			<h2><?php printf( __( '%s Theme Options', 'twentyeleven' ), $theme_name ); ?></h2>
+			<h2><?php printf( __( '%s Theme Options', 'twentytwelve' ), $theme_name ); ?></h2>
 			<?php settings_errors(); ?>
 
 			<form method="post" action="options.php">
@@ -144,11 +145,45 @@ class Twenty_Twelve_Options {
 	function validate( $input ) {
 		$output = $defaults = $this->get_default_theme_options();
 
-		// The enable fonts checkbox should either be on or off
+		// The enable fonts checkbox should boolean true or false
 		if ( ! isset( $input['enable_fonts'] ) )
-			$input['enable_fonts'] = 'off';
-		$output['enable_fonts'] = ( $input['enable_fonts'] == 'on' ? 'on' : 'off' );
+			$input['enable_fonts'] = false;
+		$output['enable_fonts'] = ( false != $input['enable_fonts'] ? true : false );
 
 		return apply_filters( 'twentytwelve_options_validate', $output, $input, $defaults );
+	}
+
+	/**
+	 * Implement Twenty Twelve theme options into Theme Customizer
+	 *
+	 * @param $wp_customize Theme Customizer object
+	 * @return void
+	 *
+	 * @since Twenty Twelve 1.0
+	 */
+	function customize_register( $wp_customize ) {
+		if ( ! isset( $wp_customize ) )
+			return;
+
+		// Enable Web Fonts
+		$wp_customize->add_section( $this->option_key . '_enable_fonts', array(
+			'title'    => __( 'Fonts', 'twentytwelve' ),
+			'priority' => 35,
+		) );
+
+		$defaults = $this->get_default_theme_options();
+
+		$wp_customize->add_setting( $this->option_key . '[enable_fonts]', array(
+			'default'    => $defaults['enable_fonts'],
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+		) );
+
+		$wp_customize->add_control( $this->option_key . '_enable_fonts', array(
+			'label'    => __( 'Enable Web Fonts', 'twentytwelve' ),
+			'section'  => $this->option_key . '_enable_fonts',
+			'settings' => $this->option_key . '[enable_fonts]',
+			'type'     => 'checkbox',
+		) );
 	}
 }
