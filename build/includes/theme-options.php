@@ -162,9 +162,6 @@ class Twenty_Twelve_Options {
 	 * @since Twenty Twelve 1.0
 	 */
 	function customize_register( $wp_customize ) {
-		if ( ! isset( $wp_customize ) )
-			return;
-
 		// Enable Web Fonts
 		$wp_customize->add_section( $this->option_key . '_enable_fonts', array(
 			'title'    => __( 'Fonts', 'twentytwelve' ),
