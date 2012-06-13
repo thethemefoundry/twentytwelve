@@ -88,11 +88,24 @@ video {
 }
 
 /*---------------------------------------------------------
-	Extras
+	Images
 ------------------------------------------------------------ */
 .alignleft {
 	float: left;
 }
 .alignright {
 	float: right;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+	font-style: italic;
+	@include rem('font-size', 12px);
+	line-height: ($evbase/12);
+	color: lighten($font-color, 20);
 }
