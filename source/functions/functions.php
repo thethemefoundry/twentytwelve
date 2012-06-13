@@ -305,7 +305,7 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 				<?php
 					echo get_avatar( $comment, 44 );
 
-					printf( '<cite class="fn">%s</cite>', get_comment_author_link() );
+					printf( '<cite class="fn">%s <span>Post author</span></cite>', get_comment_author_link() );
 					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
