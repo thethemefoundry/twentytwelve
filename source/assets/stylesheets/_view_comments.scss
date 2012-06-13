@@ -67,6 +67,15 @@
 			line-height: $lheight;
 		}
 	}
+	li.bypostauthor cite span {
+		@include rem('margin-left', 5px);
+		@include rem('padding', 2px 5px);
+		@include rem('font-size', 10px);
+		line-height: ($evbase/10);
+		color: #fff;
+		@include vertical-gradient($startColor: lighten($link-color, 20), $endColor: $link-color);
+		border: 1px solid darken($link-color, 2);
+	}
 }
 a.comment-reply-link {
 	@include rem('font-size', 13px);

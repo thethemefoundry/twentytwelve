@@ -29,7 +29,8 @@ article.format-link {
 	Buttons
 ------------------------------------------------------------ */
 .menu-toggle,
-input#searchsubmit {
+input#searchsubmit,
+li.bypostauthor cite span {
 	@include rem('padding', 1px 10px);
 	cursor: pointer;
 	@include rem('font-size', 11px);
