@@ -313,7 +313,6 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 						sprintf( __( '%1$s at %2$s', 'twentytwelve' ), get_comment_date(), get_comment_time() )
 					);
 				?>
-				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
 			</header>
 
 			<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -322,6 +321,7 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 
 			<section class="comment post-content">
 				<?php comment_text(); ?>
+				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<p class="edit-link">', '</p>' ); ?>
 			</section>
 
 			<div class="reply">
