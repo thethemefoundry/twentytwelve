@@ -298,14 +298,18 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 			break;
 		default :
 		// Proceed with normal comments.
+		global $post;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<header class="comment-meta comment-author vcard">
 				<?php
 					echo get_avatar( $comment, 44 );
-
-					printf( '<cite class="fn">%s</cite>', get_comment_author_link() );
+					printf( '<cite class="fn">%1$s %2$s</cite>',
+						get_comment_author_link(),
+						// If current post author is also comment author, make it known visually.
+						( $comment->user_id === $post->post_author ) ? '<span> ' . __( 'Post author', 'twentytwelve' ) . '</span>' : ''
+					);
 					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
@@ -313,7 +317,6 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 						sprintf( __( '%1$s at %2$s', 'twentytwelve' ), get_comment_date(), get_comment_time() )
 					);
 				?>
-				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<span class="edit-link">', '</span>' ); ?>
 			</header>
 
 			<?php if ( '0' == $comment->comment_approved ) : ?>
@@ -322,6 +325,7 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 
 			<section class="comment post-content">
 				<?php comment_text(); ?>
+				<?php edit_comment_link( __( 'Edit', 'twentytwelve' ), '<p class="edit-link">', '</p>' ); ?>
 			</section>
 
 			<div class="reply">

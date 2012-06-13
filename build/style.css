@@ -143,7 +143,8 @@ article.format-link footer.entry-meta {
 	Buttons
 ------------------------------------------------------------ */
 .menu-toggle,
-input#searchsubmit {
+input#searchsubmit,
+li.bypostauthor cite span {
   padding: 1px 10px;
   padding:  0.071428571rem 0.714285714rem;
   cursor: pointer;
@@ -170,7 +171,8 @@ input#searchsubmit {
   box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
 }
 .menu-toggle:hover,
-input#searchsubmit:hover {
+input#searchsubmit:hover,
+li.bypostauthor cite span:hover {
   color: #5e5e5e;
   background-color: #ebebeb;
   background-repeat: repeat-x;
@@ -184,7 +186,9 @@ input#searchsubmit:hover {
 }
 .menu-toggle:active, .menu-toggle.toggled-on,
 input#searchsubmit:active,
-input#searchsubmit.toggled-on {
+input#searchsubmit.toggled-on,
+li.bypostauthor cite span:active,
+li.bypostauthor cite span.toggled-on {
   color: #777777;
   background-color: #e1e1e1;
   background-repeat: repeat-x;
@@ -248,7 +252,7 @@ video {
 }
 
 /*---------------------------------------------------------
-	Extras
+	Images
 ------------------------------------------------------------ */
 .alignleft {
   float: left;
@@ -256,6 +260,22 @@ video {
 
 .alignright {
   float: right;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption .wp-caption-text,
+.gallery-caption,
+.entry-caption {
+  font-style: italic;
+  font-size: 12px;
+  font-size: 0.857142857rem;
+  line-height: 2;
+  color: #777777;
 }
 
 /* scaffolding.css.scss
@@ -951,6 +971,26 @@ article.format-quote .entry-content blockquote {
   margin: 24px 0;
   margin:  1.714285714rem 0;
   line-height: 1.714285714;
+}
+#comments li.bypostauthor cite span {
+  margin-left: 5px;
+  margin-left: 0.357142857rem;
+  padding: 2px 5px;
+  padding:  0.142857143rem 0.357142857rem;
+  font-size: 10px;
+  font-size: 0.714285714rem;
+  line-height: 2.4;
+  color: #fff;
+  background-color: #21759b;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#4aacd8), to(#21759b));
+  background-image: -moz-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -ms-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4aacd8), color-stop(100%, #21759b));
+  background-image: -webkit-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -o-linear-gradient(top, #4aacd8, #21759b);
+  background-image: linear-gradient(top, #4aacd8, #21759b);
+  border: 1px solid #1f6f93;
 }
 
 a.comment-reply-link {
