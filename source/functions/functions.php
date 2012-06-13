@@ -298,14 +298,18 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 			break;
 		default :
 		// Proceed with normal comments.
+		global $post;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<header class="comment-meta comment-author vcard">
 				<?php
 					echo get_avatar( $comment, 44 );
-
-					printf( '<cite class="fn">%s <span>Post author</span></cite>', get_comment_author_link() );
+					printf( '<cite class="fn">%1$s %2$s</cite>',
+						get_comment_author_link(),
+						// If current post author is also comment author, make it known visually.
+						( $comment->user_id === $post->post_author ) ? '<span> ' . __( 'Post author', 'twentytwelve' ) . '</span>' : ''
+					);
 					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
 						esc_url( get_comment_link( $comment->comment_ID ) ),
 						get_comment_time( 'c' ),
