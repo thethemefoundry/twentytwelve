@@ -338,82 +338,49 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 }
 endif;
 
-if ( ! function_exists( 'twentytwelve_posted_on' ) ) :
-/**
- * Prints HTML with information for the current post author and published date/time.
- *
- * Create your own twentytwelve_posted_on() to override in a child theme.
- *
- * @uses twentytwelve_posted_by()
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_posted_on( $return = false ) {
-	$out = sprintf( __( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>%5$s', 'twentytwelve' ),
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		twentytwelve_posted_by( true )
-	);
-
-	if ( $return )
-		return $out;
-
-	echo $out;
-}
-endif;
-
-if ( ! function_exists( 'twentytwelve_posted_by' ) ) :
-/**
- * Prints HTML with meta information for the current post author.
- *
- * Create your own twentytwelve_posted_by() to override in a child theme.
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_posted_by( $return = false ) {
-	$out = sprintf( __( '<span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span></span>', 'twentytwelve' ),
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
-		get_the_author()
-	);
-
-	if ( $return )
-		return $out;
-
-	echo $out;
-}
-endif;
-
 if ( ! function_exists( 'twentytwelve_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
  *
  * Create your own twentytwelve_entry_meta() to override in a child theme.
  *
- * @uses twentytwelve_posted_on()
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_entry_meta() {
-	/* translators: used between list items, there is a space after the comma */
+	// Translators: used between list items, there is a space after the comma.
 	$categories_list = get_the_category_list( __( ', ', 'twentytwelve' ) );
 
-	/* translators: used between list items, there is a space after the comma */
+	// Translators: used between list items, there is a space after the comma.
 	$tag_list = get_the_tag_list( '', __( ', ', 'twentytwelve' ) );
 
+	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a>',
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
+
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( sprintf( __( 'View all posts by %s', 'twentytwelve' ), get_the_author() ) ),
+		get_the_author()
+	);
+
+	// Translators: 1 is category, 2 is tag, 3 is the date and 4 is the author's name.
 	if ( '' != $tag_list ) {
-		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s.', 'twentytwelve' );
+		$utility_text = __( 'This entry was posted in %1$s and tagged %2$s on %3$s by %4$s.', 'twentytwelve' );
 	} elseif ( '' != $categories_list ) {
-		$utility_text = __( 'This entry was posted in %1$s on %3$s.', 'twentytwelve' );
+		$utility_text = __( 'This entry was posted in %1$s on %3$s by %4$s.', 'twentytwelve' );
 	} else {
-		$utility_text = __( 'This entry was posted on %3$s.', 'twentytwelve' );
+		$utility_text = __( 'This entry was posted on %3$s by %4$s.', 'twentytwelve' );
 	}
 
 	printf(
 		$utility_text,
 		$categories_list,
 		$tag_list,
-		twentytwelve_posted_on( true )
+		$date,
+		$author
 	);
 }
 endif;
