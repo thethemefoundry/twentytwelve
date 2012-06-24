@@ -44,24 +44,38 @@ header.entry-header {
 		}
 	}
 }
-div.entry-content {
+.entry-content {
 	h1,
 	h2,
 	h3,
-	h4 {
+	h4,
+	h5,
+	h6 {
 		@include rem('margin', $vbase 0);
 		line-height: $lheight;
 	}
 	h1 {
-		@include rem('font-size', 16px);
+		@include rem('font-size', 21px);
 		line-height: ($evbase/16);
 	}
 	h2 {
-		@include rem('font-size', 15px);
+		@include rem('font-size', 18px);
 		line-height: ($evbase/15);
 	}
+	h3 {
+		@include rem('font-size', 16px);
+		line-height: ($evbase/13);
+	}
 	h4 {
+		@include rem('font-size', 14px);
+		line-height: ($evbase/13);
+	}
+	h5 {
 		@include rem('font-size', 13px);
+		line-height: ($evbase/13);
+	}
+	h6 {
+		@include rem('font-size', 12px);
 		line-height: ($evbase/13);
 	}
 	p {
@@ -77,6 +91,9 @@ div.entry-content {
 	ol, ul {
 		@include rem('margin', 0 0 $vbase 0);
 		line-height: $lheight;
+	}
+	ul ul, ol ol, ul ol, ol ul {
+		margin-bottom: 0;
 	}
 	ul {
 		list-style: disc outside;
@@ -108,19 +125,55 @@ div.entry-content {
 			display: block;
 		}
 	}
+	abbr, acronym, dfn {
+		border-bottom: 1px dotted #666;
+		cursor: help;
+	}
+	address {
+		display: block;
+		@include rem('margin', 0 0 $vbase);
+	}
 	img.alignleft {
-		float: left;
-		@include rem('margin', 0 $vbase $vbase 0);
+		@include rem('margin', $vbase/2 $vbase $vbase/2 0);
 	}
 	img.alignright {
-		float: right;
-		@include rem('margin', 0 0 $vbase $vbase);
+		@include rem('margin', $vbase/2 0 $vbase/2 $vbase);
+	}
+	img.aligncenter {
+		@include rem('margin-top', $vbase/2);
+		@include rem('margin-bottom', $vbase/2);
 	}
 	iframe {
 		@include rem('margin-bottom', $vbase);
 	}
+	dl {
+		@include rem('margin', 0 $vbase);
+	}
+	dt {
+		font-weight: bold;
+	}
+	dd {
+		@include rem('margin-bottom', $vbase );
+	}
+	table {
+		border-bottom: 1px solid #ededed;
+		@include rem('margin', 0 0 $vbase);
+		width: 100%;
+	}
+	th {
+		color: #666;
+		@include rem('font-size', 10px);
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		line-height: ($evbase/13);
+		text-transform: uppercase;
+	}
+	td {
+		border-top: 1px solid #ededed;
+		padding: 6px 10px 6px 0;
+	}
 }
-div#content article {
+#content article {
 	@include rem('padding-bottom', $vbase );
 	@include rem('margin-bottom', 72px );
 	border-bottom: 4px double #ededed;

@@ -213,7 +213,7 @@ section[role="banner"] {
 /*---------------------------------------------------------
 	Sidebar
 ------------------------------------------------------------ */
-div#secondary aside {
+#secondary aside {
 	@include rem('margin-bottom', $vbase2 );
 	h3 {
 		@include rem('margin-bottom', $vbase );
