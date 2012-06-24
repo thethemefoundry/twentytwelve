@@ -45,8 +45,11 @@ body.custom-background #page {
 		@include box-shadow(0 2px 6px rgba( 100, 100, 100, .3));
 	}
 }
+#main {
+	@include clear();
+}
 #primary {
-	@include rem('margin', $vbase 0);
+	@include rem('margin', $vbase 0 0);
 	@media screen and (min-width: 600px) {
 		float: left;
 		width: percentage(625/960);
@@ -59,7 +62,7 @@ body.custom-background #page {
 	}
 }
 #secondary {
-	@include rem('margin', $vbase 0);
+	@include rem('margin', $vbase 0 0);
 	@media screen and (min-width: 600px) {
 		float: right;
 		width: percentage(250/960);
