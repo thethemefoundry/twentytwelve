@@ -179,6 +179,7 @@ nav[role="navigation"].main-small-navigation {
 	li {
 		@include rem('font-size', 12px);
 		line-height: ($evbase/8);
+		float: none;
 	}
 	a {
 		color: lighten($font-color, 10);
