@@ -207,14 +207,54 @@ function twentytwelve_admin_header_image() {
 endif;
 
 /**
- * Enqueue scripts for front-end.
+ * Enqueue scripts and styles for front-end.
  *
  * @since Twenty Twelve 1.0
  */
-function twentytwelve_scripts() {
+function twentytwelve_scripts_styles() {
+	global $twentytwelve_options, $wp_styles;
+
+	/**
+	 * Add JavaScript to pages with the comment form to support
+	 * sites with threaded comments (when in use).
+	 */
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+
+	/**
+	 * JavaScript for handling navigation menus and the resized
+	 * styles for small screen sizes.
+	 */
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
+
+	/**
+	 * Load special font CSS file.
+	 * Depends on Theme Options setting.
+	 *
+	 * TODO handle loading only the needed character sets based on current language setting
+	 * TODO reduce the Google font weight list to load only the ones used in the theme
+	 * See https://github.com/thethemefoundry/twentytwelve/issues/24
+	 */
+	$options = $twentytwelve_options->get_theme_options();
+	if ( $options['enable_fonts'] )
+		wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+
+	/**
+	 * Load our main CSS file.
+	 */
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+
+	/**
+	 * Load HTML5 shiv for older IE version support for HTML5 elements.
+	 * Ideally, should load after main CSS file.
+	 *
+	 * TODO depends on IE dependency being in core for JS enqueuing
+	 * before we can move here properly: see http://core.trac.wordpress.org/ticket/16024
+	 */
+	// See html5.js link in header.php.
+
 }
-add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts' );
+add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
