@@ -148,9 +148,14 @@ function twentytwelve_admin_header_style() {
 		font-size: 30px;
 	}
 	#headimg h1 a {
+		color: #515151;
 		text-decoration: none;
 	}
+	#headimg h1 a:hover {
+		color: #21759b;
+	}
 	#headimg h2 {
+		color: #777;
 		font: normal 13px/1.8 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
 		margin-bottom: 24px;
 	}
@@ -179,7 +184,7 @@ function twentytwelve_admin_header_image() {
 		<h2 id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
 		<?php $header_image = get_header_image();
 		if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
+			<img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
 		<?php endif; ?>
 	</div>
 <?php }
