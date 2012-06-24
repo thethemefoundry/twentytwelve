@@ -32,12 +32,6 @@ if ( ! isset( $content_width ) )
 	$content_width = 584;
 
 /**
- * Tell WordPress to run twentytwelve_setup() when the 'after_setup_theme' hook is run.
- */
-add_action( 'after_setup_theme', 'twentytwelve_setup' );
-
-if ( ! function_exists( 'twentytwelve_setup' ) ) :
-/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @uses load_theme_textdomain() For translation/localization support.
@@ -100,7 +94,7 @@ function twentytwelve_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 }
-endif;
+add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
 if ( ! function_exists( 'twentytwelve_header_style' ) ) :
 /**
