@@ -26,3 +26,8 @@
 		@include border-radius();
 	}
 }
+.widget_rss {
+	li {
+		@include rem('margin', $vbase/2 0);
+	}
+}
