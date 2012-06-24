@@ -49,7 +49,7 @@ if ( ! function_exists( 'twentytwelve_setup' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_setup() {
-	global $Twenty_Twelve_Options, $twentytwelve_options;
+	global $twentytwelve_options;
 
 	/**
 	 * Make Twenty Twelve available for translation.
