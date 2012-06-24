@@ -14,7 +14,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-meta">
-			<h1><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+			<h1><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'twentytwelve' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 			<h2><?php the_date(); ?></h2>
 			<!--<?php edit_post_link( __( 'Edit', 'twentytwelve' ), '<div class="edit-link">', '</div>' ); ?>-->
 		</footer><!-- #entry-meta -->
