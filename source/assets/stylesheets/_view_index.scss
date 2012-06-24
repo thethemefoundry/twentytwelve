@@ -125,7 +125,8 @@ div#content article {
 	@include rem('margin-bottom', 72px );
 	border-bottom: 4px double #ededed;
 }
-div.page-links {
+.page-links {
+	clear: both;
 	line-height: $lheight;
 }
 footer.entry-meta {
