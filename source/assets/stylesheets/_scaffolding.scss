@@ -151,7 +151,11 @@ nav.main-navigation {
 		margin: 0;
 		z-index: 1;
 	}
-	li:hover ul {
+	li ul ul {
+		top: 0;
+		left: 100%;
+	}
+	ul li:hover > ul {
 		display: block;
 		border-left: 0;
 	}
