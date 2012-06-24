@@ -155,6 +155,7 @@ function twentytwelve_admin_header_style() {
 		margin-bottom: 24px;
 	}
 	#headimg img {
+		max-width: <?php echo get_theme_support( 'custom-header', 'max-width' ); ?>px;
 	}
 	</style>
 <?php
