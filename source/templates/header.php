@@ -64,7 +64,7 @@
 
 		<?php $header_image = get_header_image();
 		if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
+			<img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
 		<?php endif; ?>
 	</header><!-- #masthead -->
 
