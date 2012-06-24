@@ -28,7 +28,7 @@ get_header(); ?>
 						</div><!-- .entry-content -->
 					</section>
 				<?php endwhile; // end of the loop. ?>
-			</div>
+			</div><!-- .home-top -->
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
