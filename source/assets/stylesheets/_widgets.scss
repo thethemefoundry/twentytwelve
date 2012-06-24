@@ -12,6 +12,10 @@
 	caption {
 		text-align: left;
 	}
+	#next {
+		@include rem('padding-right', $vbase);
+		text-align: right;
+	}
 }
 .widget_search {
 	label {
