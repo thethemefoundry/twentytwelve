@@ -82,6 +82,7 @@ body.custom-background #page {
 			}
 			a {
 				color: lighten($font-color, 5);
+				display: block;
 				text-decoration: none;
 				&:hover {
 					color: $link-color;
