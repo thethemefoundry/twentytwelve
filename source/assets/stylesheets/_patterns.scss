@@ -60,8 +60,6 @@ li.bypostauthor cite span {
 .comment-content img,
 .widget img {
 	max-width: 100%; /* Fluid images for posts, comments, and widgets */
-	@include border-radius();
-	@include box-shadow();
 }
 img[class*="align"],
 img[class*="wp-image-"],
@@ -98,6 +96,15 @@ video {
 	margin-left: auto;
 	margin-right: auto;
 }
+img[class*="align"],
+img[class*="wp-image-"],
+#content .gallery .gallery-icon img { /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
+	@include border-radius();
+	@include box-shadow();
+}
+.wp-caption {
+	padding: 4px;
+}
 .wp-caption .wp-caption-text,
 .gallery-caption,
 .entry-caption {
@@ -107,7 +114,9 @@ video {
 	color: lighten($font-color, 20);
 }
 .entry-content img.wp-smiley {
-	border: none;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0;
 	margin-bottom: 0;
 	margin-top: 0;
 	padding: 0;
