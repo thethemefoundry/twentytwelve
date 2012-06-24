@@ -53,7 +53,7 @@
 		</nav>
 		<?php endif; // check for comment navigation ?>
 
-	<?php // If there are no comments and comments are closed, let's leave a note.
+	<?php // If comments are closed and there are comments, let's leave a little note.
 		elseif ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'twentytwelve' ); ?></p>
