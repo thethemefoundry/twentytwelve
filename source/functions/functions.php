@@ -84,9 +84,9 @@ function twentytwelve_setup() {
 		// Support flexible height and width.
 		'flex-height' => true,
 		'flex-width' => true,
-		// Set suggested height and width, with a maximum value for the width.
-		'suggested-height' => apply_filters( 'twentytwelve_header_image_height', 250 ),
-		'suggested-width' => apply_filters( 'twentytwelve_header_image_width', 960 ),
+		// Set height and width, with a maximum value for the width.
+		'height' => apply_filters( 'twentytwelve_header_image_height', 250 ),
+		'width' => apply_filters( 'twentytwelve_header_image_width', 960 ),
 		'max-width' => apply_filters( 'twentytwelve_header_image_max_width', 2000 ),
 		// Callback for styling the header.
 		'wp-head-callback' => 'twentytwelve_header_style',
