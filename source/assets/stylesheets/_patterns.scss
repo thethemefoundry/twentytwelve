@@ -121,6 +121,22 @@ img[class*="wp-image-"],
 	margin-top: 0;
 	padding: 0;
 }
+.entry-content dl.gallery-item {
+	margin: 0;
+}
+.gallery-columns-4 .gallery-item img
+.gallery-columns-5 .gallery-item img {
+	width: 100%;
+	height: auto;
+}
+#content .gallery-columns-4 .gallery-item {
+	width: 23%;
+	padding-right: 2%;
+}
+#content .gallery-columns-5 .gallery-item {
+	width: 18%;
+	padding-right: 2%;
+}
 
 /*---------------------------------------------------------
 	Navigation
