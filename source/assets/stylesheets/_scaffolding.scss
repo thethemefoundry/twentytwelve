@@ -176,6 +176,13 @@ nav.main-navigation {
 		@include rem('padding', 8px 12px);
 		width: 90px;
 	}
+	.current-menu-item > a,
+	.current-menu-ancestor > a,
+	.current_page_item > a,
+	.current_page_ancestor > a {
+		color: darken($font-color, 30);
+		font-weight: bold;
+	}
 }
 // Small menu
 nav[role="navigation"].main-small-navigation {
