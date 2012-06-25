@@ -121,3 +121,30 @@ img[class*="wp-image-"],
 	margin-top: 0;
 	padding: 0;
 }
+
+/*---------------------------------------------------------
+	Navigation
+------------------------------------------------------------ */
+#content nav {
+	clear: both;
+	line-height: ($evbase/12);
+	overflow: hidden;
+}
+#nav-above {
+	@include rem('padding', $vbase 0);
+}
+#nav-above {
+	display: none;
+}
+.paged #nav-above {
+	display: block;
+}
+.nav-previous {
+	float: left;
+	width: 50%;
+}
+.nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}

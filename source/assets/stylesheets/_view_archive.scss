@@ -10,3 +10,6 @@
 		color: lighten($font-color, 12);
 	}
 }
+.search .page-header {
+	@include rem('margin-bottom', $vbase2);
+}
