@@ -4,6 +4,13 @@
 .widget ul ul {
 	@include rem('margin-left', $vbase/2);
 }
+.widget_recent_entries .post-date {
+	color: #ababab;
+}
+.widget_recent_entries .post-date:before {
+	content: '\2014';
+	padding-right: 3px;
+}
 #wp-calendar {
 	margin: 0;
 	width: 100%;
