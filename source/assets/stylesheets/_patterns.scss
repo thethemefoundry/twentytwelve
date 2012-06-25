@@ -148,3 +148,24 @@ img[class*="wp-image-"],
 	text-align: right;
 	width: 50%;
 }
+
+
+/*---------------------------------------------------------
+	Author profiles
+------------------------------------------------------------ */
+
+#author-info {
+	@include clear();
+	@include rem('margin', $vbase 0);
+}
+#author-avatar {
+	float: left;
+	width: 75px;
+}
+#author-description {
+	color: lighten($font-color, 20);
+	@include rem('font-size', 13px);
+	line-height: ($evbase/13);
+	float: left;
+	@include rem('margin-left', 15px);
+}
