@@ -1,6 +1,9 @@
 /* widgets.css.scss
  * All widget styling
  * ------------------------------------------------------------------ */
+.widget ul ul {
+	@include rem('margin-left', $vbase/2);
+}
 #wp-calendar {
 	margin: 0;
 	width: 100%;
