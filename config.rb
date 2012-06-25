@@ -14,7 +14,7 @@ config[:author_uri] = "http://wordpress.org/"
 config[:description] = "The 2012 theme for WordPress."
 
 # Version number of the theme
-config[:version_number] = ".5"
+config[:version_number] = ".6"
 
 # Name of the theme license
 config[:license_name] = "GNU General Public License"
