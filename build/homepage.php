@@ -1,7 +1,11 @@
 <?php
-/*
-Template Name: Homepage
-*/
+/**
+ * Template Name: Homepage
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
+ */
 
 get_header(); ?>
 
@@ -24,7 +28,7 @@ get_header(); ?>
 						</div><!-- .entry-content -->
 					</section>
 				<?php endwhile; // end of the loop. ?>
-			</div>
+			</div><!-- .home-top -->
 
 		</div><!-- #content -->
 	</div><!-- #primary -->

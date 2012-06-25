@@ -12,18 +12,16 @@
  * @since Twenty Twelve 1.0
  */
 ?>
-	<div id="comments">
-	<?php if ( post_password_required() ) : ?>
-		<p class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'twentytwelve' ); ?></p>
-	</div><!-- #comments -->
-	<?php
-			/* Stop the rest of comments.php from being processed,
-			 * but don't kill the script entirely -- we still have
-			 * to fully load the template.
-			 */
+<?php
+	/*
+	 * If the current post is protected by a password and
+	 * the visitor has not yet entered the password we will
+	 * return early without loading the comments.
+	 */
+	if ( post_password_required() )
 			return;
-		endif;
-	?>
+?>
+	<div id="comments">
 
 	<?php // You can start editing here -- including this comment! ?>
 
@@ -55,7 +53,7 @@
 		</nav>
 		<?php endif; // check for comment navigation ?>
 
-	<?php // If there are no comments and comments are closed, let's leave a note.
+	<?php // If comments are closed and there are comments, let's leave a little note.
 		elseif ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
 		<p class="nocomments"><?php _e( 'Comments are closed.', 'twentytwelve' ); ?></p>

@@ -32,12 +32,6 @@ if ( ! isset( $content_width ) )
 	$content_width = 584;
 
 /**
- * Tell WordPress to run twentytwelve_setup() when the 'after_setup_theme' hook is run.
- */
-add_action( 'after_setup_theme', 'twentytwelve_setup' );
-
-if ( ! function_exists( 'twentytwelve_setup' ) ) :
-/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @uses load_theme_textdomain() For translation/localization support.
@@ -49,7 +43,7 @@ if ( ! function_exists( 'twentytwelve_setup' ) ) :
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_setup() {
-	global $Twenty_Twelve_Options, $twentytwelve_options;
+	global $twentytwelve_options;
 
 	/**
 	 * Make Twenty Twelve available for translation.
@@ -75,146 +69,66 @@ function twentytwelve_setup() {
 	// Add support for custom background.
 	add_theme_support( 'custom-background' );
 
-	// Add support for a custom header image.
-	add_theme_support( 'custom-header', array(
-		// The default header text color.
-		'default-text-color' => '444',
-		// Random image rotation by default.
-		'random-default' => true,
-		// Support flexible height and width.
-		'flex-height' => true,
-		'flex-width' => true,
-		// Set suggested height and width, with a maximum value for the width.
-		'suggested-height' => apply_filters( 'twentytwelve_header_image_height', 250 ),
-		'suggested-width' => apply_filters( 'twentytwelve_header_image_width', 960 ),
-		'max-width' => apply_filters( 'twentytwelve_header_image_max_width', 2000 ),
-		// Callback for styling the header.
-		'wp-head-callback' => 'twentytwelve_header_style',
-		// Callback for styling the header preview in the admin.
-		'admin-head-callback' => 'twentytwelve_admin_header_style',
-		// Callback used to display the header preview in the admin.
-		'admin-preview-callback' => 'twentytwelve_admin_header_image',
-	) );
-
 	// Add custom image size for featured image use, displayed on "standard" posts.
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 624, 9999 ); // Unlimited height, soft crop
 }
-endif;
+add_action( 'after_setup_theme', 'twentytwelve_setup' );
 
-if ( ! function_exists( 'twentytwelve_header_style' ) ) :
 /**
- * Styles the header image and text displayed on the blog
- *
- * get_header_textcolor() options: 444 is default, hide text (returns 'blank'), or any hex value
+ * Add support for a custom header image.
+ */
+require( get_template_directory() . '/includes/custom-header.php' );
+
+/**
+ * Enqueue scripts and styles for front-end.
  *
  * @since Twenty Twelve 1.0
  */
-function twentytwelve_header_style() {
-	$text_color = get_header_textcolor();
-	// If no custom options for text are set, let's bail
-	if ( $text_color == get_theme_support( 'custom-header', 'default-text-color' ) )
-		return;
-	// If we get this far, we have custom styles.
-	?>
-	<style type="text/css">
-	<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-	?>
-		.site-title,
-		.site-description {
-			position: absolute !important;
-			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-			clip: rect(1px, 1px, 1px, 1px);
-		}
-	<?php
-		// If the user has set a custom color for the text, use that.
-		else :
-	?>
-		.site-title a,
-		.site-description {
-			color: #<?php echo $text_color; ?> !important;
-		}
-	<?php endif; ?>
-	</style>
-	<?php
-}
-endif;
+function twentytwelve_scripts_styles() {
+	global $twentytwelve_options, $wp_styles;
 
-if ( ! function_exists( 'twentytwelve_admin_header_style' ) ) :
-/**
- * Styles the header image displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in twentytwelve_setup().
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_admin_header_style() {
-?>
-	<style type="text/css">
-	.appearance_page_custom-header #headimg {
-		border: none;
-	}
-	#headimg h1,
-	#headimg h2 {
-		line-height: 1.6;
-		margin: 0;
-		padding: 0;
-	}
-	#headimg h1 {
-		font-size: 30px;
-	}
-	#headimg h1 a {
-		text-decoration: none;
-	}
-	#headimg h2 {
-		font: normal 13px/1.8 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
-		margin-bottom: 24px;
-	}
-	#headimg img {
-	}
-	</style>
-<?php
-}
-endif;
+	/**
+	 * Add JavaScript to pages with the comment form to support
+	 * sites with threaded comments (when in use).
+	 */
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
 
-if ( ! function_exists( 'twentytwelve_admin_header_image' ) ) :
-/**
- * Custom header image markup displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in twentytwelve_setup().
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_admin_header_image() {
-	?>
-	<div id="headimg">
-		<?php
-		if ( ! display_header_text() )
-			$style = ' style="display:none;"';
-		else
-			$style = ' style="color:#' . get_header_textcolor() . ';"';
-		?>
-		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<h2 id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></h2>
-		<?php $header_image = get_header_image();
-		if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
-		<?php endif; ?>
-	</div>
-<?php }
-endif;
-
-/**
- * Enqueue scripts for front-end.
- *
- * @since Twenty Twelve 1.0
- */
-function twentytwelve_scripts() {
+	/**
+	 * JavaScript for handling navigation menus and the resized
+	 * styles for small screen sizes.
+	 */
 	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/javascripts/theme.js', array( 'jquery' ), '20130320', true );
+
+	/**
+	 * Load special font CSS file.
+	 * Depends on Theme Options setting.
+	 *
+	 * TODO handle loading only the needed character sets based on current language setting
+	 * TODO reduce the Google font weight list to load only the ones used in the theme
+	 * See https://github.com/thethemefoundry/twentytwelve/issues/24
+	 */
+	$options = $twentytwelve_options->get_theme_options();
+	if ( $options['enable_fonts'] )
+		wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+
+	/**
+	 * Load our main CSS file.
+	 */
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri() );
+
+	/**
+	 * Load HTML5 shiv for older IE version support for HTML5 elements.
+	 * Ideally, should load after main CSS file.
+	 *
+	 * TODO depends on IE dependency being in core for JS enqueuing
+	 * before we can move here properly: see http://core.trac.wordpress.org/ticket/16024
+	 */
+	// See html5.js link in header.php.
+
 }
-add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts' );
+add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
@@ -399,3 +313,14 @@ function twentytwelve_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'twentytwelve_body_class' );
+
+/**
+ * Adjust $content width for full-width and single image attachment templates.
+ */
+function twentytwelve_content_width() {
+	if ( is_page_template( 'full-width-page.php' ) || is_attachment() ) {
+		global $content_width;
+		$content_width = 960;
+	}
+}
+add_action( 'template_redirect', 'twentytwelve_content_width' );
