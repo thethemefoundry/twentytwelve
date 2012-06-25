@@ -1,0 +1,17 @@
+/* attachment.css.scss
+ * Styling for the single image attachment view
+ * ------------------------------------------------------------------ */
+
+.image-attachment div.attachment {
+	overflow: hidden;
+	text-align: center;
+}
+.image-attachment div.attachment img {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	max-width: 100%;
+}
+.image-attachment .entry-caption {
+	@include rem('margin-top', $vbase/3);
+}

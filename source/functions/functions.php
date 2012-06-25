@@ -315,10 +315,10 @@ function twentytwelve_body_class( $classes ) {
 add_filter( 'body_class', 'twentytwelve_body_class' );
 
 /**
- * Adjust $content width for full-width template.
+ * Adjust $content width for full-width and single image attachment templates.
  */
 function twentytwelve_content_width() {
-	if ( is_page_template( 'full-width-page.php' ) ) {
+	if ( is_page_template( 'full-width-page.php' ) || is_attachment() ) {
 		global $content_width;
 		$content_width = 960;
 	}

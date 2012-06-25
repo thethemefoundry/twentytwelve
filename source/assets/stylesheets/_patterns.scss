@@ -155,16 +155,17 @@ img[class*="wp-image-"],
 .paged #nav-above {
 	display: block;
 }
-.nav-previous {
+.nav-previous,
+.previous-image {
 	float: left;
 	width: 50%;
 }
-.nav-next {
+.nav-next,
+.next-image {
 	float: right;
 	text-align: right;
 	width: 50%;
 }
-
 
 /*---------------------------------------------------------
 	Author profiles
