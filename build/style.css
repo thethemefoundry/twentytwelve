@@ -232,7 +232,8 @@ img[class*="attachment-"] {
 }
 
 img.size-full,
-img.size-large {
+img.size-large,
+img.header-image {
   max-width: 100%;
   width: auto;
   /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
@@ -268,7 +269,8 @@ video {
 
 img[class*="align"],
 img[class*="wp-image-"],
-#content .gallery .gallery-icon img {
+#content .gallery .gallery-icon img,
+img.header-image {
   /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
