@@ -5,11 +5,9 @@
 	@include rem('margin-left', $vbase/2);
 }
 .widget_recent_entries .post-date {
-	color: #ababab;
-}
-.widget_recent_entries .post-date:before {
-	content: '\2014';
-	padding-right: 3px;
+	color: lighten($font-color, 40);
+	@include rem('font-size', 11px);
+	@include rem('margin-left', 12px);
 }
 #wp-calendar {
 	margin: 0;

@@ -233,7 +233,8 @@ img[class*="attachment-"] {
 
 img.size-full,
 img.size-large,
-img.header-image {
+img.header-image,
+img.wp-post-image {
   max-width: 100%;
   width: auto;
   /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
@@ -267,10 +268,11 @@ video {
   margin-right: auto;
 }
 
-img[class*="align"],
-img[class*="wp-image-"],
-#content .gallery .gallery-icon img,
-img.header-image {
+.entry-content img,
+.comment-content img,
+.widget img,
+img.header-image,
+img.wp-post-image {
   /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1403,13 +1405,6 @@ label ~ span.required {
 .page-template-homepage-php #secondary aside li a:hover {
   color: #21759b;
 }
-.page-template-homepage-php #secondary aside li time {
-  margin-left: 12px;
-  margin-left: 0.857142857rem;
-  font-size: 11px;
-  font-size: 0.785714286rem;
-  color: #aaaaaa;
-}
 .page-template-homepage-php #secondary aside.widget_text img {
   float: left;
   margin: 8px 24px 8px 0;
@@ -1439,12 +1434,11 @@ label ~ span.required {
 }
 
 .widget_recent_entries .post-date {
-  color: #ababab;
-}
-
-.widget_recent_entries .post-date:before {
-  content: '\2014';
-  padding-right: 3px;
+  color: #aaaaaa;
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  margin-left: 12px;
+  margin-left: 0.857142857rem;
 }
 
 #wp-calendar {
