@@ -6,6 +6,7 @@
 	Small headers
 ------------------------------------------------------------ */
 .archive-title,
+.page-title,
 .widget-title {
 	@include rem('font-size', 11px);
 	line-height: ($evbase/11);
@@ -169,6 +170,10 @@ img.wp-post-image { /* Add fancy borders to all WordPress-added images but not t
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+#nav-single + #comments,
+#comment-nav-above {
+	@include rem('margin', $vbase2 0);
 }
 
 /*---------------------------------------------------------
