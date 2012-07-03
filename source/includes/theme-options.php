@@ -106,7 +106,7 @@ class Twenty_Twelve_Options {
 	function settings_field_enable_fonts() {
 		$options = $this->options;
 		?>
-		<label for"enable-fonts">
+		<label for="enable-fonts">
 			<input type="checkbox" name="<?php echo $this->option_key; ?>[enable_fonts]" id="enable-fonts" <?php checked( $options['enable_fonts'] ); ?> />
 			<?php _e( 'Yes, I&#8217;d like to enable the gorgeous, open-source <em>Open Sans</em> typeface.', 'twentytwelve' );  ?>
 		</label>
