@@ -196,12 +196,10 @@ nav.main-navigation {
 nav[role="navigation"].main-small-navigation {
 	@include rem('margin-top', $vbase);
 	text-align: center;
-	ul {
-		@include rem('margin-top', $vbase);
-	}
 	li {
+		@include rem('margin-top', $vbase);
 		@include rem('font-size', 12px);
-		line-height: ($evbase/8);
+		line-height: ($evbase/12);
 		float: none;
 	}
 	a {
