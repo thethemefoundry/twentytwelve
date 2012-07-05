@@ -86,7 +86,7 @@ require( get_template_directory() . '/includes/custom-header.php' );
  * @since Twenty Twelve 1.0
  */
 function twentytwelve_scripts_styles() {
-	global $twentytwelve_options, $wp_styles;
+	global $twentytwelve_options;
 
 	/**
 	 * Add JavaScript to pages with the comment form to support

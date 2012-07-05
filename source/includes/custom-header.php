@@ -4,7 +4,7 @@
  * http://codex.wordpress.org/Custom_Headers
  *
  * @package Twenty_Twelve
- * @since Twelve Twelve 1.0
+ * @since Twenty Twelve 1.0
  */
 
 /**
