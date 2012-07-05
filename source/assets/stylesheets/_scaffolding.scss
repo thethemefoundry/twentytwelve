@@ -175,16 +175,20 @@ nav.main-navigation {
 		background: #efefef;
 		border-bottom: $divider;
 		display: block;
-		@include rem('font-size', 12px);
-		line-height: ($evbase/13);
-		@include rem('padding', 8px 12px);
-		width: 90px;
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+		@include rem('padding', 8px 10px);
+		@include rem('width', 120px);
+	}
+	li ul li a:hover {
+		background: #e3e3e3;
+		color: $font-color;
 	}
 	.current-menu-item > a,
 	.current-menu-ancestor > a,
 	.current_page_item > a,
 	.current_page_ancestor > a {
-		color: darken($font-color, 30);
+		color: lighten($font-color, 12);
 		font-weight: bold;
 	}
 }
