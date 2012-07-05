@@ -7,6 +7,9 @@ div.home-middle {
 		@include clear();
 	}
 }
+div.home-top {
+	@include rem('margin-bottom', $vbase);
+}
 section.home-content {
 	@media screen and (min-width: 600px) {
 		@include clear();

@@ -250,7 +250,7 @@ footer[role="contentinfo"] {
 	clear: both;
 	@include clear();
 	@include rem('max-width', 960px);
-	@include rem('margin-top', $vbase2);
+	@include rem('margin-top', $vbase);
 	margin-left: auto;
 	margin-right: auto;
 	@include rem('padding', $vbase 0);
