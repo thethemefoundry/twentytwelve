@@ -163,7 +163,7 @@ header.entry-header {
 	th {
 		color: #666;
 		@include rem('font-size', 10px);
-		font-weight: 500;
+		font-weight: bold;
 		letter-spacing: 0.1em;
 		line-height: ($evbase/13);
 		text-transform: uppercase;
