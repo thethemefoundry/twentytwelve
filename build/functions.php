@@ -104,9 +104,6 @@ function twentytwelve_scripts_styles() {
 	/**
 	 * Load special font CSS file.
 	 * Depends on Theme Options setting.
-	 *
-	 * TODO handle loading only the needed character sets based on current language setting
-	 * See https://github.com/thethemefoundry/twentytwelve/issues/24
 	 */
 	$options = $twentytwelve_options->get_theme_options();
 	if ( $options['enable_fonts'] )
