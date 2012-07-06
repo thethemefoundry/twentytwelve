@@ -106,12 +106,11 @@ function twentytwelve_scripts_styles() {
 	 * Depends on Theme Options setting.
 	 *
 	 * TODO handle loading only the needed character sets based on current language setting
-	 * TODO reduce the Google font weight list to load only the ones used in the theme
 	 * See https://github.com/thethemefoundry/twentytwelve/issues/24
 	 */
 	$options = $twentytwelve_options->get_theme_options();
 	if ( $options['enable_fonts'] )
-		wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' );
+		wp_enqueue_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' );
 
 	/**
 	 * Load our main CSS file.
