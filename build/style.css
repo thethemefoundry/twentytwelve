@@ -154,10 +154,10 @@ article.format-link footer.entry-meta {
 ------------------------------------------------------------ */
 .menu-toggle,
 input#searchsubmit,
-li.bypostauthor cite span {
+li.bypostauthor cite span,
+.featured-post {
   padding: 1px 10px;
   padding:  0.071428571rem 0.714285714rem;
-  cursor: pointer;
   font-size: 11px;
   font-size: 0.785714286rem;
   line-height: 2.181818182;
@@ -180,9 +180,13 @@ li.bypostauthor cite span {
   -moz-box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
   box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
 }
+
+.menu-toggle,
+input#searchsubmit {
+  cursor: pointer;
+}
 .menu-toggle:hover,
-input#searchsubmit:hover,
-li.bypostauthor cite span:hover {
+input#searchsubmit:hover {
   color: #5e5e5e;
   background-color: #ebebeb;
   background-repeat: repeat-x;
@@ -196,9 +200,7 @@ li.bypostauthor cite span:hover {
 }
 .menu-toggle:active, .menu-toggle.toggled-on,
 input#searchsubmit:active,
-input#searchsubmit.toggled-on,
-li.bypostauthor cite span:active,
-li.bypostauthor cite span.toggled-on {
+input#searchsubmit.toggled-on {
   color: #777777;
   background-color: #e1e1e1;
   background-repeat: repeat-x;
@@ -213,6 +215,21 @@ li.bypostauthor cite span.toggled-on {
   -moz-box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
   box-shadow: inset 0 0 8px 2px #c6c6c6, 0 1px 0 0 #f4f4f4;
   border: none;
+}
+
+li.bypostauthor cite span,
+.featured-post {
+  color: #fff;
+  background-color: #21759b;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#4aacd8), to(#21759b));
+  background-image: -moz-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -ms-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4aacd8), color-stop(100%, #21759b));
+  background-image: -webkit-linear-gradient(top, #4aacd8, #21759b);
+  background-image: -o-linear-gradient(top, #4aacd8, #21759b);
+  background-image: linear-gradient(top, #4aacd8, #21759b);
+  border: 1px solid #1f6f93;
 }
 
 /*---------------------------------------------------------
@@ -273,6 +290,7 @@ video {
 .comment-content img,
 .widget img,
 img.header-image,
+#author-avatar img,
 img.wp-post-image {
   /* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
   -webkit-border-radius: 3px;
@@ -374,6 +392,9 @@ img.wp-post-image {
   zoom: 1;
   margin: 24px 0;
   margin:  1.714285714rem 0;
+  padding-top: 24px;
+  padding-top: 1.714285714rem;
+  border-top: 1px solid #ededed;
 }
 #author-info:before, #author-info:after {
   display: table;
@@ -383,19 +404,25 @@ img.wp-post-image {
   clear: both;
 }
 
-#author-avatar {
-  float: left;
-  width: 75px;
+@media screen and (min-width: 600px) {
+  #author-avatar {
+    float: left;
+    margin-top: 8px;
+    margin-top: 0.571428571rem;
+  }
 }
 
-#author-description {
+@media screen and (min-width: 600px) {
+  #author-description {
+    float: right;
+    width: 80%;
+  }
+}
+#author-description p {
   color: #777777;
   font-size: 13px;
   font-size: 0.928571429rem;
   line-height: 1.846153846;
-  float: left;
-  margin-left: 15px;
-  margin-left: 1.071428571rem;
 }
 
 /* scaffolding.css.scss
@@ -554,6 +581,11 @@ a:hover {
   color: #777777;
 }
 
+.header-image {
+  margin-top: 24px;
+  margin-top: 1.714285714rem;
+}
+
 /*---------------------------------------------------------
 	Navigation Menu
 ------------------------------------------------------------ */
@@ -623,18 +655,23 @@ nav.main-navigation li ul li a {
   background: #efefef;
   border-bottom: 1px solid #ededed;
   display: block;
-  font-size: 12px;
-  font-size: 0.857142857rem;
-  line-height: 1.846153846;
-  padding: 8px 12px;
-  padding:  0.571428571rem 0.857142857rem;
-  width: 90px;
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  line-height: 2.181818182;
+  padding: 8px 10px;
+  padding:  0.571428571rem 0.714285714rem;
+  width: 120px;
+  width: 8.571428571rem;
+}
+nav.main-navigation li ul li a:hover {
+  background: #e3e3e3;
+  color: #444444;
 }
 nav.main-navigation .current-menu-item > a,
 nav.main-navigation .current-menu-ancestor > a,
 nav.main-navigation .current_page_item > a,
 nav.main-navigation .current_page_ancestor > a {
-  color: black;
+  color: #636363;
   font-weight: bold;
 }
 
@@ -643,14 +680,12 @@ nav[role="navigation"].main-small-navigation {
   margin-top: 1.714285714rem;
   text-align: center;
 }
-nav[role="navigation"].main-small-navigation ul {
+nav[role="navigation"].main-small-navigation li {
   margin-top: 24px;
   margin-top: 1.714285714rem;
-}
-nav[role="navigation"].main-small-navigation li {
   font-size: 12px;
   font-size: 0.857142857rem;
-  line-height: 3;
+  line-height: 2;
   float: none;
 }
 nav[role="navigation"].main-small-navigation a {
@@ -710,8 +745,8 @@ footer[role="contentinfo"] {
   zoom: 1;
   max-width: 960px;
   max-width: 68.571428571rem;
-  margin-top: 48px;
-  margin-top: 3.428571429rem;
+  margin-top: 24px;
+  margin-top: 1.714285714rem;
   margin-left: auto;
   margin-right: auto;
   padding: 24px 0;
@@ -790,6 +825,38 @@ header.entry-header .comments-link {
 .comments-link a:hover,
 .entry-meta a:hover {
   color: #21759b;
+}
+
+article.sticky .featured-post {
+  margin-bottom: 24px;
+  margin-bottom: 1.714285714rem;
+  padding: 0 5px;
+  padding:  0 0.357142857rem;
+  font-size: 11px;
+  font-size: 0.785714286rem;
+  line-height: 2.181818182;
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  article.sticky header.entry-header {
+    zoom: 1;
+    float: left;
+    max-width: 73.6%;
+  }
+  article.sticky header.entry-header:before, article.sticky header.entry-header:after {
+    display: table;
+    content: "";
+  }
+  article.sticky header.entry-header:after {
+    clear: both;
+  }
+  article.sticky .featured-post {
+    float: right;
+    text-align: left;
+  }
+  article.sticky .entry-content {
+    clear: both;
+  }
 }
 
 .entry-content h1,
@@ -934,7 +1001,7 @@ header.entry-header .comments-link {
   color: #666;
   font-size: 10px;
   font-size: 0.714285714rem;
-  font-weight: 500;
+  font-weight: bold;
   letter-spacing: 0.1em;
   line-height: 1.846153846;
   text-transform: uppercase;
@@ -1214,17 +1281,6 @@ article.format-quote .entry-content blockquote {
   font-size: 10px;
   font-size: 0.714285714rem;
   line-height: 2.4;
-  color: #fff;
-  background-color: #21759b;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#4aacd8), to(#21759b));
-  background-image: -moz-linear-gradient(top, #4aacd8, #21759b);
-  background-image: -ms-linear-gradient(top, #4aacd8, #21759b);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4aacd8), color-stop(100%, #21759b));
-  background-image: -webkit-linear-gradient(top, #4aacd8, #21759b);
-  background-image: -o-linear-gradient(top, #4aacd8, #21759b);
-  background-image: linear-gradient(top, #4aacd8, #21759b);
-  border: 1px solid #1f6f93;
 }
 
 a.comment-reply-link {
@@ -1344,6 +1400,11 @@ label ~ span.required {
   div.home-middle:after {
     clear: both;
   }
+}
+
+div.home-top {
+  margin-bottom: 24px;
+  margin-bottom: 1.714285714rem;
 }
 
 @media screen and (min-width: 600px) {

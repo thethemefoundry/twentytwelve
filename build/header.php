@@ -16,35 +16,9 @@
 <title><?php wp_title( '|', true, 'right' ); ?><?php echo bloginfo( 'name' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-
-<!-- Grid loader FOR LOCAL DEV ONLY
-     Files are located in /includes/headsupgrid
--->
-<link href="<?php bloginfo( 'stylesheet_directory' ); ?>/includes/headsupgrid/hugrid.css" type="text/css" rel="stylesheet" />
-<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/includes/headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/includes/headsupgrid/hugrid.js"></script>
-<script type="text/javascript">
-		$(document).ready(function() {
-				pageUnits = 'px';
-				colUnits = 'px';
-				pagewidth = 960;
-				columns = 8;
-				columnwidth = 85;
-				gutterwidth = 40;
-				pagetopmargin = 0;
-				rowheight = 24;
-				gridonload = 'off';
-				makehugrid();
-				setgridonload();
-		});
-</script>
-<!-- End grid loader
--->
-
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/javascripts/html5.js" type="text/javascript"></script>
 <![endif]-->
-
 <?php wp_head(); ?>
 </head>
 
