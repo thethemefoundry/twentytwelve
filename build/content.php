@@ -9,11 +9,11 @@
 ?>
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php if (is_sticky() ) : ?>
+		<?php if ( is_sticky() ) : ?>
 		<div class="featured-post">
 			<?php _e( 'Featured post', 'twentytwelve' ); ?>
 		</div>
-		<?php endif; // is_sticky() ?>
+		<?php endif; ?>
 		<header class="entry-header">
 			<?php the_post_thumbnail(); ?>
 			<?php if ( is_single() ) : ?>
