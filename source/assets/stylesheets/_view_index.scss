@@ -44,6 +44,29 @@ header.entry-header {
 		}
 	}
 }
+article.sticky {
+	.featured-post {
+		@include rem('margin-bottom', $vbase);
+		@include rem('padding', 0 5px);
+		@include rem('font-size', 11px);
+		line-height: ($evbase/11);
+		text-align: center;
+	}
+	@media screen and (min-width: 600px) {
+		header.entry-header {
+			@include clear();
+			float: left;
+			max-width: percentage(460/625);
+		}
+		.featured-post {
+			float: right;
+			text-align: left;
+		}
+		.entry-content {
+			clear: both;
+		}
+	}
+}
 .entry-content {
 	h1,
 	h2,
