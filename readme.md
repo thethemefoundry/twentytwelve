@@ -1,7 +1,9 @@
 # Twenty Twelve
 
-This is the temporary development home for the WordPress Twenty Twelve theme. Feel free to submit issues and open pull requests. Please be clear and concise when opening new issues.
+This was the temporary development home for the WordPress Twenty Twelve theme until July 11, 2012. Now tracking back on [WordPress core Trac](http://core.trac.wordpress.org/).
+
+See [http://core.trac.wordpress.org/ticket/19978](http://example.com/) as the original ticket there, and open new tickets for issues.
 
 ### What's with the weird directory structure?
 
-We're using [Forge](https://github.com/thethemefoundry/forge) during this stage of development to speed things up. When Twenty Twelve is officially checked back into WordPress core these development tools will be removed and the directory structure will be back to normal.
+We used [Forge](https://github.com/thethemefoundry/forge) during this stage of development to speed things up. When Twenty Twelve was checked back into WordPress core these development tools are no longer in use, and the directory structure is back to normal.
